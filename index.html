@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Use the XDG Base Dir Spec!</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1><b>Use the <a class='title' href='https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html'>XDG Base Directory Specification</b></a>!</h1>
+
+	<h2>Why?</h2>
+	<p>Look at your home</p>
+	<pre class='ls-long'><code>$ exa -l --no-filesize --no-user --no-time ~
+lrwxrwxrwx  .alsoftrc -> /home/edwin/.dots/user/.alsoftrc
+drwxr-xr-x  .android/
+drwxr-xr-x  .ansible/
+drwx------  .aqbanking/
+drwxr-xr-x  .audacity-data/
+lrwxrwxrwx  .bash_logout -> /home/edwin/.dots/user/.bash_logout
+lrwxrwxrwx  .bash_profile -> /home/edwin/.dots/user/.bash_profile
+lrwxrwxrwx  .bashrc -> /home/edwin/config/bash/bashrc.sh
+drwx------  .cache/
+drwxr-xr-x  .choosenim/
+drwxr-xr-x  .code-d/
+drwxr-xr-x  .config/
+drwxr-xr-x  config/
+drwxr-xr-x  .cpan/
+drwxr-xr-x  data/
+drwxr-xr-x  Desk/
+lrwxrwxrwx  Dls -> /storage/edwin/Dls/
+lrwxrwxrwx  Docs -> /storage/edwin/Docs/
+drwxr-xr-x  .eclipse/
+drwxr-xr-x  .elementary/
+drwx------  .emacs.d/
+-rw-------  .emulator_console_auth_token
+-rw-r--r--  .flutter
+-rw-r--r--  .flutter_tool_state
+drwxr-xr-x  .gem/
+drwxr-xr-x  .ghc/
+drwxr-x---  .ghidra/
+drwx------  .gnome/
+drwx------  .gnupg/
+drwxr-xr-x  .godot/
+drwxr-xr-x  .gore/
+drwxr-xr-x  .gradle/
+drwxr-xr-x  .gsutil/
+-rw-------  .guestfish
+-rw-r--r--  .heekscad
+drwxr-xr-x  .helioslauncher/
+-rw-r--r--  HomeBank-20210521.bak
+-rw-r--r--  HomeBank-20210607.bak
+-rw-r--r--  HomeBank-20210611.bak
+lrwxrwxrwx  .hushlogin -> /home/edwin/.dots/user/.hushlogin
+drwxr-xr-x  .idapro/
+drwxr-xr-x  .ivy2/
+drwxr-xr-x  .java/
+drwxr-xr-x  javasharedresources/
+drwxr-xr-x  .kb/
+drwxr-x---  .kube/
+drwxr-x---  .lldb/
+drwxr-xr-x  .local/
+drwxr-xr-x  .lunarclient/
+-rw-------  .lyxauth
+drwxr-xr-x  .m2/
+-rw-------  macOS.vdi
+drwxr-xr-x  .mcfly/
+drwxr-xr-x  .metals/
+drwxr-xr-x  .minecraft/
+drwxr-xr-x  .mono/
+lrwxrwxrwx  .mozilla -> /storage/data/mozilla/
+drwxr-xr-x  .mputils/
+drwxr-xr-x  .mume/
+lrwxrwxrwx  Music -> /storage/edwin/Music/
+drwxr-xr-x  .omnisharp/
+drwxr-xr-x  .ort/
+-rw-------  .osc_cookiejar
+drwxr-xr-x  .pack/
+drwxr-xr-x  .paradoxlauncher/
+drwxr-xr-x  .parsec/
+lrwxrwxrwx  Pics -> /storage/edwin/Pics/
+drwx------  .pki/
+drwxr-xr-x  .pm2/
+lrwxrwxrwx  .profile -> /home/edwin/config/profile/profile.sh
+-rw-------  .pythonhist
+drwxr-xr-x  .sbt/
+drwx------  .scim/
+lrwxrwxrwx  .ssh -> /storage/data/ssh/
+drwxr-xr-x  .steam/
+lrwxrwxrwx  .steampath -> /home/edwin/.steam/sdk32/steam
+lrwxrwxrwx  .steampid -> /home/edwin/.steam/steam.pid
+drwx------  .step/
+drwxr-xr-x  .subversion/
+drwxr-xr-x  .swt/
+drwxr-xr-x  .tooling/
+drwxr-xr-x  'Universe Sandbox'/
+lrwxrwxrwx  Vids -> /storage/edwin/Vids/
+drwxr-xr-x  .vscode/
+drwx------  .w3m/
+drwxr-xr-x  .wine/
+lrwxrwxrwx  .xinitrc -> /home/edwin/config/X11/xinitrc*
+lrwxrwxrwx  .yarnrc -> /home/edwin/.dots/user/.yarnrc
+-rw-r--r--  .zcompdump
+drwx------  .zoom/
+lrwxrwxrwx  .zshenv -> /home/edwin/config/zsh/.zshenv</code></pre>
+
+	<p>What if your house was clean and tidy?</p>
+
+	<pre class='ls-short'><code>$ exa -l --no-filesize --no-user --no-time ~
+drwx------  .cache/
+drwxr-xr-x  .config/
+drwxr-xr-x  Desk/
+lrwxrwxrwx  Dls
+lrwxrwxrwx  Docs
+drwxr-xr-x  .local/
+lrwxrwxrwx  Music
+lrwxrwxrwx  Pics
+lrwxrwxrwx  .profile
+lrwxrwxrwx  Vids</code></pre>
+
+<p>The application files are now located inside <code>~/.config</code> and <code>~/.local</code>. For example, a <code>~/.gitconfig</code> file <i>might</i> be located at <code>~/.config/git/config</code> instead.</p>
+
+<p>Succinctly, following the spec means application files are nearly categorized in subdirectories of the home folder. For instance, cache files default to <code>~/.cache</code>, config files default to <code>~/.config</code>, etc. For me personally, this speaks for itself. As an end user of great software, <i>I</i> want a clean home folder!</p>
+
+<p>But if you're still not convinced, imagine that <code>/etc</code> did not exist - configuration would be chaotically scattered about in a way similar to how <code>$HOME</code> exists today. But, because we have <code>/etc</code> specifically designated as a directory for config files by the <a href='https://refspecs.linuxfoundation.org/fhs.shtml'>File Hierarchy Standard</a>, it is <i>significantly</i> easier to locate, edit, and backup config <i>across machines</i>. Those ergonomics should not just exist for system-level files, but for config, data, and state files at the user-level as well.</p>
+
+<p>Thus, I emplore, I <i>beg</i> all you application developers to implement the <a href='https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html'>XDG Base Directory Specification</a></p>
+
+	<h2>How?</h2>
+	<p>First, categorize the files you need to write into four separate categories:</p>
+	<ol>
+		<li>Configuration</li>
+		<p>Like <code>/etc</code>, store config here. Even if the configuration file is not meant to be human-editable, it likely belongs here</p>
+		<li>Data</li>
+		<p>Like <code>/usr/share</code>, store general files and data that is inherently portable across computers. If your file doesn't really fit in any of the other categories, it likely belongs here</p>
+		<li>State</li>
+		<p>Files about the state of the user. For example, this may include log files, file history, or save data for a game. In other words, if the data is unique for a given machine, the file belongs here</p>
+		<li>Cache</li>
+		<p>Self-explanatory</p>
+	</ol>
+
+	<p>Second, determine where to store the files for each of these categories. This is specified by the standard!</p>
+	<ul>
+		<li><i>Configuration</i> files should be located at <code>$XDG_CONFIG_HOME/&lt;application-name&gt;</code>. If the environment variable <code>$XDG_CONFIG_HOME</code> is not set or is empty, it should default to <code>$HOME/.config</code>
+		</li>
+		<li><i>Data</i> files should be located at <code>$XDG_DATA_HOME/&lt;application-name&gt;</code>. If the environment variable <code>$XDG_DATA_HOME</code> is not set or is empty, it should default to <code>$HOME/.local/data</code>
+		</li>
+		<li><i>State</i> files should be located at <code>$XDG_STATE_HOME/&lt;application-name&gt;</code>. If the environment variable <code>$XDG_STATE_HOME</code> is not set or is empty, it should default to <code>$HOME/.local/state</code>
+		</li>
+		<li><i>Cache</i> files should be located at <code>$XDG_CACHE_HOME/&lt;application-name&gt;</code>. If the environment variable <code>$XDG_CACHE_HOME</code> is not set or is empty, it should default to <code>$HOME/.cache</code>
+		</li>
+	</ul>
+
+	<p>There is more to the standard, but you should know and implement <i>at least</i> the aforementioned, which is the most important part. If you are using a modern language, and you don't want to implement this yourself, <a href='https://github.com/dirs-dev/directories-rs'>use</a> <a href='https://github.com/adrg/xdg'>a</a> <a href='https://github.com/sindresorhus/env-paths'>library</a>. By implementing this, your users will silently thank you!</p>
+
+	<h2>What if I already do the wrong thing and use the home folder directly?</h2>
+	<p>If you write to a few individual files in <code>$HOME</code>, simply check if those files exist before following the XDG Base Directory Specification. Consider the following example, given a traditional config location of <code>~/foo-app.json</code>: If <code>~/foo-app.json</code> exists use it; if it does not exist, then check if <code>$XDG_CONFIG_HOME</code> is set and is non-empty. If it is, then write to <code>$XDG_CONFIG_HOME/foo-app/foo-app.json</code>. If not, then write to <code>$HOME/.config/foo-app/foo-app.json</code></p>
+
+	<p>However if you hold configuration inside a subdirectory of home (ex. <code>~/.ansible</code>), things are a bit less clear-cut. I don't think I would personally recommend placing everything in <code>$XDG_STATE_HOME/application-dir</code>. It would definitely be a good first start to make the location of the directory configurable by an environment variable. For example <a href='https://www.terraform.io'>Terraform</a> exposes this option using <code>TF_DATA_DIR</code>. Even just exposing the directory through an environment variable is <a href='https://github.com/eankeen/dots/blob/d534663b655b3e470ba85abca0828ca9b514a0c2/user/config/profile/modules/xdg.sh'><i>incredibly</i> useful</a></p>
+
+	<p></p>
+
+	<h2>Who else does this?</h2>
+	<div class='compliant-software'>
+		<span>Kitty</span><span>Alacritty</span><span>Terminator</span><span>chezmoi</span><span>aria2</span><span>bat</span><span>i3</span><span>nano</span><span>picom</span><span>poetry</span><span>VLC</span><span>awesome</span><span>aerc</span><span>micro</span><span>Handbrake</span><span>polybar</span><span>mpv</span><span>Docker</span><span>Anki</span><span>basher</span><span>htop</span><span>ranger</span><span>TypeScript</span><span>navi</span><span>Audacious</span><span>cmus</span><span>ccache</span><span>Deluge</span><span>Terraria</span><span>neomutt</span><span>broot</span><span>nb</span><span>tig</span><span>cargo</span><span>openbox</span><span>asdf</span><span>fish</span><span>Dolphin</span><span>MultiMC</span><span>pnpm</span><span>GIMP</span>
+	</div>
+	<p>Do you support the standard? Make a <a href='https://github.com/eankeen/xdgbasedirectoryspecification.com/blob/main/index.html'>PR</a>!</p>
+
+	<h2>Should I do this on macOS?</h2>
+	<p>Generaly speaking, if your program's only interface is a CLI, then it's permissible to follow the XDG Base Directory Specification, even if you aren't on Linux. This is pretty common across the ecosystem. On the other hand, if it's a GUI, then you would usually follow the standard <a href='https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFileSystem/Articles/WhereToPutFiles.html'>macOS directory locations</a>. For example. Sublime Text 3 stores it's preferences on macOS in <code>~/Library/Application Support/Sublime Text 3/Packages/User</code>, even if it also ships with a <code>subl</code> command</p>
+</body>
+</html>
