@@ -11,8 +11,10 @@ body {
 
 code {
 	font-family: ui-monospace, monospace;
-	font-size: 16px;
+	font-size: 80%;
 	background-color: #f1f3f5;
+	padding: 2px;
+	border-radius: 2px;
 }
 
 .title:active, .title:hover, .title:visited, .title:link {
@@ -35,6 +37,6 @@ code {
 	display: inline-block;
 	padding: 3px;
 	margin: 2px;
-	border-radius: 4px;
+	border-radius: 3px;
 	background-color: #f1f3f5;
 }
