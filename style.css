@@ -1,19 +1,26 @@
+*, *::before, *::after {
+	border: 0 none;
+}
+
 body {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, ui-sans-serif, sans-serif;
 
 	color: #212529;
 	background-color: #f8f9fa;
 	font-size: 18px;
-	line-height: 140%;
 
 	max-width: 1200px;
+}
+
+p {
+	line-height: 140%;
 }
 
 code {
 	font-family: ui-monospace, monospace;
 	font-size: 80%;
 	background-color: #f1f3f5;
-	padding: 2px;
+	padding: 3px;
 	border-radius: 2px;
 }
 

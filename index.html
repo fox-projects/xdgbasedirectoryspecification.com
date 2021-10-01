@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Use the XDG Base Dir Spec!</title>
+	<title>Use the XDG Base Dir Spec</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,116 +12,116 @@
 
 	<h2>Why?</h2>
 	<p>Look at your home</p>
-	<pre class='ls-long'><code>$ exa -l --no-filesize --no-user --no-time ~
-lrwxrwxrwx  .alsoftrc -> /home/edwin/.dots/user/.alsoftrc
-drwxr-xr-x  .android/
-drwxr-xr-x  .ansible/
-drwx------  .aqbanking/
-drwxr-xr-x  .audacity-data/
-lrwxrwxrwx  .bash_logout -> /home/edwin/.dots/user/.bash_logout
-lrwxrwxrwx  .bash_profile -> /home/edwin/.dots/user/.bash_profile
-lrwxrwxrwx  .bashrc -> /home/edwin/config/bash/bashrc.sh
-drwx------  .cache/
-drwxr-xr-x  .choosenim/
-drwxr-xr-x  .code-d/
-drwxr-xr-x  .config/
-drwxr-xr-x  config/
-drwxr-xr-x  .cpan/
-drwxr-xr-x  data/
-drwxr-xr-x  Desk/
-lrwxrwxrwx  Dls -> /storage/edwin/Dls/
-lrwxrwxrwx  Docs -> /storage/edwin/Docs/
-drwxr-xr-x  .eclipse/
-drwxr-xr-x  .elementary/
-drwx------  .emacs.d/
--rw-------  .emulator_console_auth_token
--rw-r--r--  .flutter
--rw-r--r--  .flutter_tool_state
-drwxr-xr-x  .gem/
-drwxr-xr-x  .ghc/
-drwxr-x---  .ghidra/
-drwx------  .gnome/
-drwx------  .gnupg/
-drwxr-xr-x  .godot/
-drwxr-xr-x  .gore/
-drwxr-xr-x  .gradle/
-drwxr-xr-x  .gsutil/
--rw-------  .guestfish
--rw-r--r--  .heekscad
-drwxr-xr-x  .helioslauncher/
--rw-r--r--  HomeBank-20210521.bak
--rw-r--r--  HomeBank-20210607.bak
--rw-r--r--  HomeBank-20210611.bak
-lrwxrwxrwx  .hushlogin -> /home/edwin/.dots/user/.hushlogin
-drwxr-xr-x  .idapro/
-drwxr-xr-x  .ivy2/
-drwxr-xr-x  .java/
-drwxr-xr-x  javasharedresources/
-drwxr-xr-x  .kb/
-drwxr-x---  .kube/
-drwxr-x---  .lldb/
-drwxr-xr-x  .local/
-drwxr-xr-x  .lunarclient/
--rw-------  .lyxauth
-drwxr-xr-x  .m2/
--rw-------  macOS.vdi
-drwxr-xr-x  .mcfly/
-drwxr-xr-x  .metals/
-drwxr-xr-x  .minecraft/
-drwxr-xr-x  .mono/
-lrwxrwxrwx  .mozilla -> /storage/data/mozilla/
-drwxr-xr-x  .mputils/
-drwxr-xr-x  .mume/
-lrwxrwxrwx  Music -> /storage/edwin/Music/
-drwxr-xr-x  .omnisharp/
-drwxr-xr-x  .ort/
--rw-------  .osc_cookiejar
-drwxr-xr-x  .pack/
-drwxr-xr-x  .paradoxlauncher/
-drwxr-xr-x  .parsec/
-lrwxrwxrwx  Pics -> /storage/edwin/Pics/
-drwx------  .pki/
-drwxr-xr-x  .pm2/
-lrwxrwxrwx  .profile -> /home/edwin/config/profile/profile.sh
--rw-------  .pythonhist
-drwxr-xr-x  .sbt/
-drwx------  .scim/
-lrwxrwxrwx  .ssh -> /storage/data/ssh/
-drwxr-xr-x  .steam/
-lrwxrwxrwx  .steampath -> /home/edwin/.steam/sdk32/steam
-lrwxrwxrwx  .steampid -> /home/edwin/.steam/steam.pid
-drwx------  .step/
-drwxr-xr-x  .subversion/
-drwxr-xr-x  .swt/
-drwxr-xr-x  .tooling/
-drwxr-xr-x  'Universe Sandbox'/
-lrwxrwxrwx  Vids -> /storage/edwin/Vids/
-drwxr-xr-x  .vscode/
-drwx------  .w3m/
-drwxr-xr-x  .wine/
-lrwxrwxrwx  .xinitrc -> /home/edwin/config/X11/xinitrc*
-lrwxrwxrwx  .yarnrc -> /home/edwin/.dots/user/.yarnrc
--rw-r--r--  .zcompdump
-drwx------  .zoom/
-lrwxrwxrwx  .zshenv -> /home/edwin/config/zsh/.zshenv</code></pre>
+	<pre class='ls-long'><code>$ exa -al --no-filesize --no-user --no-time --no-permissions --color=never ~
+.alsoftrc -> /home/edwin/.dots/user/.alsoftrc
+.android/
+.ansible/
+.aqbanking/
+.audacity-data/
+.bash_logout -> /home/edwin/.dots/user/.bash_logout
+.bash_profile -> /home/edwin/.dots/user/.bash_profile
+.bashrc -> /home/edwin/config/bash/bashrc.sh
+.cache/
+.choosenim/
+.code-d/
+.config/
+config/
+.cpan/
+data/
+Desk/
+Dls -> /storage/edwin/Dls/
+Docs -> /storage/edwin/Docs/
+.eclipse/
+.elementary/
+.emacs.d/
+.emulator_console_auth_token
+.flutter
+.flutter_tool_state
+.gem/
+.ghc/
+.ghidra/
+.gnome/
+.gnupg/
+.godot/
+.gore/
+.gradle/
+.gsutil/
+.guestfish
+.heekscad
+.helioslauncher/
+HomeBank-20210521.bak
+HomeBank-20210607.bak
+HomeBank-20210611.bak
+.hushlogin -> /home/edwin/.dots/user/.hushlogin
+.idapro/
+.ivy2/
+.java/
+javasharedresources/
+.kb/
+.kube/
+.lldb/
+.local/
+.lunarclient/
+.lyxauth
+.m2/
+macOS.vdi
+.mcfly/
+.metals/
+.minecraft/
+.mono/
+.mozilla -> /storage/data/mozilla/
+.mputils/
+.mume/
+Music -> /storage/edwin/Music/
+.omnisharp/
+.ort/
+.osc_cookiejar
+.pack/
+.paradoxlauncher/
+.parsec/
+Pics -> /storage/edwin/Pics/
+.pki/
+.pm2/
+.profile -> /home/edwin/config/profile/profile.sh
+.pythonhist
+.sbt/
+.scim/
+.ssh -> /storage/data/ssh/
+.steam/
+.steampath -> /home/edwin/.steam/sdk32/steam
+.steampid -> /home/edwin/.steam/steam.pid
+.step/
+.subversion/
+.swt/
+.tooling/
+'Universe Sandbox'/
+Vids -> /storage/edwin/Vids/
+.vscode/
+.w3m/
+.wine/
+.xinitrc -> /home/edwin/config/X11/xinitrc*
+.yarnrc -> /home/edwin/.dots/user/.yarnrc
+.zcompdump
+.zoom/
+.zshenv -> /home/edwin/config/zsh/.zshenv</code></pre>
 
 	<p>What if your house was clean and tidy?</p>
 
-	<pre class='ls-short'><code>$ exa -l --no-filesize --no-user --no-time ~
-drwx------  .cache/
-drwxr-xr-x  .config/
-drwxr-xr-x  Desk/
-lrwxrwxrwx  Dls
-lrwxrwxrwx  Docs
-drwxr-xr-x  .local/
-lrwxrwxrwx  Music
-lrwxrwxrwx  Pics
-lrwxrwxrwx  .profile
-lrwxrwxrwx  Vids</code></pre>
+	<pre class='ls-short'><code>$ exa -al --no-filesize --no-user --no-time --no-permissions --color=never ~
+.cache/
+.config/
+Desk/
+Dls
+Docs
+.local/
+Music
+Pics
+.profile
+Vids</code></pre>
 
-<p>End users of your application (and hopefully yourself, as well) want a clean home directory. Instead of having files like <code>~/.gitconfig</code> scattered chaotically in the home folder, they now properly reside in a configuration directory (<code>~/.config/git/config</code>, by default)</p>
+<p>End users of your application (and hopefully yourself, as well) want a clean home directory. Instead of having files like <code>~/.gitconfig</code> scattered chaotically in the home folder, it would be better for them to reside in a dedicated configuration directory</p>
 
-<p>Succinctly, following the spec means (by the very least) your application files are nearly categorized in subdirectories of the home folder. For instance, cache files default to <code>~/.cache</code>, config files default to <code>~/.config</code>, etc.
+<p>Succinctly, following the spec means (by the very least) your application files are nearly categorized in subdirectories of the home folder. For instance, locations of cache files default to <code>~/.cache</code> while locations of config files default to <code>~/.config</code>, etc.
 
 <h3>Benefits</h3>
 
@@ -139,35 +139,174 @@ If you aren't already sold on a clean home directory, there are additional benef
 	<li>Decreased reliance on hard-coded paths (flexibility + composability)</li>
 </ul>
 
+<p>I like how <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://0x46.net/thoughts/2019/02/01/dotfile-madness'>Filip</a> from <code>0x46.net</code> explained the issue from the perspective of a user</p>
+
+<figure>
+    <blockquote cite="https://0x46.net/thoughts/2019/02/01/dotfile-madness">
+        <p>My own home directory contains 25 ordinary files and 144 hidden files. The dotfiles contain data that doesn't belong to me: it belongs to the programmers whose programs decided to hijack the primary location designed as a storage for my personal files. I can't place those dotfiles anywhere else and they will appear again if I try to delete them. All I can do is sit here knowing that in the darkness, behind the scenes, they are there. . . . I dread the day in which I will hear a loud knock on my door and one of those programmers will barge in informing me that he is going to store a piece of his furniture in the middle of my living room, If I don't mind.</p>
+    </blockquote>
+    <figcaption>Filip from <cite>0x46.net</cite></figcaption>
+</figure>
+
 <p>As a more concrete example, imagine that <code>/etc</code> did not exist - configuration would be chaotically scattered about in a way similar to how <code>$HOME</code> exists today. But, because we have <code>/etc</code> specifically designated as a directory for config files (along with other directories) by the <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://refspecs.linuxfoundation.org/fhs.shtml'>File Hierarchy Standard</a>, it is <i>significantly</i> easier to locate, edit, and backup system files <i>across machines</i>. Those ergonomics should not just exist for system-level files, but for the user-level as well.</p>
 
 <p>Thus, I implore, I <i>beg</i> all you application developers to implement the <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html'>XDG Base Directory Specification</a></p>
-
 	<h2>How?</h2>
-	<p>First, categorize the files you need to write into four separate categories:</p>
+	<p>First, categorize the files that your program needs to write into four categories:</p>
 	<ol>
 		<li>Configuration</li>
-		<p>Like <code>/etc</code>, store config here. Even if the configuration file is not meant to be human-editable, it likely belongs here</p>
+		<p>Configuration files that affect the behavior of an program. Even if the configuration file is not meant to be human-editable, it likely belongs here.</p>
 		<li>Data</li>
-		<p>Like <code>/usr/share</code>, store general files and data that is inherently portable across computers. If your file doesn't really fit in any of the other categories, it likely belongs here</p>
+		<p>General files and data that is inherently portable across computers. Examples include fonts, files downloaded from the internet, and <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html'>desktop entries</a>.</p>
 		<li>State</li>
-		<p>Like <code>/var/lib</code>, store files about the state of the user. For example, this may include log files, file history, or save data for a game. In other words, if the data is unique for a given machine, the file belongs here</p>
+		<p>Files that hold the state of the application. This may include logs, command history, recently used files, and game save data. In other words, if the data is unique for a given machine, the file belongs here.</p>
 		<li>Cache</li>
-		<p>Like <code>/var/cache</code>, store cache files here</p>
+		<p>Cache files.</p>
 	</ol>
 
-	<p>Second, determine where to store the files for each of these categories. This is specified by the standard!</p>
-	<ul>
-		<li><i>Configuration</i> files should be located at <code>$XDG_CONFIG_HOME/&lt;application-name&gt;</code>. If the environment variable <code>$XDG_CONFIG_HOME</code> is not set or is empty, it should default to <code>$HOME/.config</code>
-		</li>
-		<li><i>Data</i> files should be located at <code>$XDG_DATA_HOME/&lt;application-name&gt;</code>. If the environment variable <code>$XDG_DATA_HOME</code> is not set or is empty, it should default to <code>$HOME/.local/data</code>
-		</li>
-		<li><i>State</i> files should be located at <code>$XDG_STATE_HOME/&lt;application-name&gt;</code>. If the environment variable <code>$XDG_STATE_HOME</code> is not set or is empty, it should default to <code>$HOME/.local/state</code>
-		</li>
-		<li><i>Cache</i> files should be located at <code>$XDG_CACHE_HOME/&lt;application-name&gt;</code>. If the environment variable <code>$XDG_CACHE_HOME</code> is not set or is empty, it should default to <code>$HOME/.cache</code>
-		</li>
-	</ul>
+	<p>Each aforementioned category is mapped to a special environment variable, which is the directory that contains all files of that category. For example, "Configuration" files are all stored in <code>$XDG_CONFIG_HOME</code>. If that environment variable is invalid, then the default value of <code>$HOME/.config</code> should be used instead. See the full table below</p>
 
+	<table>
+		<tr>
+			<th>Category</th>
+			<th>Environment Variable</th>
+			<th>Default Value</th>
+			<th><a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://refspecs.linuxfoundation.org/fhs.shtml'>FHS</a> Approximation</th>
+		</tr>
+		<tr>
+			<td>Configuration</td>
+			<td><code>$XDG_CONFIG_HOME</code></td>
+			<td><code>$HOME/.config</code></td>
+			<td><code>/etc</code></td>
+		</tr>
+		<tr>
+			<td>Data</td>
+			<td><code>$XDG_DATA_HOME</code></td>
+			<td><code>$HOME/.local/share</code></td>
+			<td><code>/usr/share</code></td>
+		</tr>
+		<tr>
+			<td>State</td>
+			<td><code>$XDG_STATE_HOME</code></td>
+			<td><code>$HOME/.local/state</code></td>
+			<td><code>/var/lib</code></td>
+		</tr>
+		<tr>
+			<td>Cache</td>
+			<td><code>$XDG_CACHE_HOME</code></td>
+			<td><code>$HOME/.cache</code></td>
+			<td><code>/var/cache</code></td>
+		</tr>
+	</table>
+
+	<p>There are three ways the environment variable can be invalid</p>
+	<ol>
+		<li>If it is unset (<code>unset XDG_CONFIG_HOME</code>)</li>
+		<li>If it is set to an empty value (<code>XDG_CONFIG_HOME=""</code>)</li>
+		<li>If it is not an absolute path (<code>XDG_CONFIG_HOME="./config"</code>)</li>
+	</ol>
+
+	<p>In any of these circumstances is encountered, then the default value should be used instead of the environment variable</p>
+
+	<h2>Code examples</h2>
+
+	<p>Now that you are acquainted with the standard, you probably want to sees some code examples. The following programs are for <b><i>Linux only</i></b> (The XDG Base Dir Spec isn't inherently followed for MacOS and Windows). Of course, if you are actually writing a program, I recommend using a library</p>
+
+	<p>The following is Go 1.13+ code. Note that it does not use <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://pkg.go.dev/os#UserConfigDir'>os.UserConfigDir</a> (<a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/golang/go/blob/6a79f358069195e1cddb821e81fab956d9a0c7d1/src/os/file.go#L500'>Source</a>) for clarity
+
+<details>
+	<summary>Show Go</summary>
+<pre>package main
+import (
+  "os"
+  "fmt"
+  "log"
+  "path/filepath"
+)
+
+func getConfigDir() (string, error) {
+  configDir := os.Getenv("XDG_CONFIG_HOME")
+
+  // If the value of the environment variable is unset or empty, use the default
+  if configDir == "" {
+    homeDir, err := os.UserHomeDir()
+    if err != nil {
+      return "", err
+    }
+    return filepath.Join(homeDir, ".config", "my-application-name"), nil
+  }
+
+  // If the value of the environment variable is not an absolute path, use the default
+  if configDir[0:1] != "/" {
+    homeDir, err := os.UserHomeDir()
+    if err != nil {
+      return "", err
+    }
+    return filepath.Join(homeDir, ".config", "my-application-name"), nil
+  }
+
+  // The value of the environment variable is valid; use it
+  return filepath.Join(configDir, "my-application-name"), nil
+}
+
+func main() {
+  config_dir, err := getConfigDir()
+  if err != nil {
+	  log.Fatal(err)
+  }
+
+  fmt.Println(config_dir)
+}</pre>
+</details>
+
+<p>The following is Python 3.5+ code. It uses <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://docs.python.org/3/library/pathlib.html#pathlib.Path.home'>Path.home</a> (<a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/python/cpython/blob/ec4d917a6a68824f1895f75d113add9410283da7/Lib/pathlib.py#L994'>Source</a>) (which uses <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://docs.python.org/3/library/pathlib.html#pathlib.Path.home'>os.path.expanduser</a> (<a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/python/cpython/blob/ec4d917a6a68824f1895f75d113add9410283da7/Lib/posixpath.py#L228'>Source</a>))</p>
+<details>
+	<summary>Show Python</summary>
+<pre>import sys, os
+from pathlib import Path
+
+def get_config_dir() -> str:
+  config_dir = os.getenv('XDG_CONFIG_HOME', '')
+
+  // If the value of the environment variable is unset or empty, use the default
+  if(config_dir == ''):
+    return str(Path.home().joinpath('.config', 'my-application-name'))
+
+  // If the value of the environment variable is not an absolute path, use the default
+  if(config_dir[0] == '/'):
+    return str(Path.home().joinpath('.config', 'my-application-name'))
+
+  // The value of the environment variable is valid; use it
+  return str(Path(config_dir).joinpath('my-application-name'))
+
+config_dir = get_config_dir()
+print(config_dir)</pre>
+</details>
+
+<p>The following is Bash code</p>
+<details>
+	<summary>Show Bash</summary>
+<pre>get_config_dir() {
+  unset REPLY; REPLY=
+
+  # If the value of the environment variable is unset or empty, use the default
+  local config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+  # If the value of the environment variable is not an absolute path, use the default
+  if [ "${config_dir::1}" != '/' ]; then
+    REPLY="$HOME/.config/my-application-name"
+  fi
+
+  # The value of the environment variable is valid; use it
+  REPLY="$config_dir/my-application-name"
+}
+
+get_config_dir
+printf '%s\n' "$REPLY"</pre>
+</details>
+
+<br>
+	<h2>Is that it?</h2>
 	<p>There is more to the standard, but you should know and implement <i>at least</i> the aforementioned, which is the most important part. If you don't want to implement this yourself, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/dirs-dev/directories-rs'>use</a> <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/adrg/xdg'>a</a> <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/sindresorhus/env-paths'>library</a>. By implementing this, your users will silently thank you!</p>
 
 	<h2>What if I already do the wrong thing and use the home folder directly?</h2>
@@ -181,25 +320,28 @@ If you aren't already sold on a clean home directory, there are additional benef
 	<div class='compliant-software'>
 		<span>Kitty</span><span>FontForge</span><span>ImageMagick</span><span>Alacritty</span><span>Composer</span><span>Terminator</span><span>clangd</span><span>chezmoi</span><span>aria2</span><span>bat</span><span>i3</span><span>nano</span><span>picom</span><span>poetry</span><span>VLC</span><span>awesome</span><span>aerc</span><span>micro</span><span>Handbrake</span><span>OfflineIMAP</span><span>polybar</span><span>rclone</span><span>xmonad</span><span>mesa</span><span>Godot</span><span>Docker</span><span>Anki</span><span>httpie</span><span>citra</span><span>basher</span><span>asunder</span><span>Transmission</span><span>htop</span><span>Termite</span><span>Git</span><span>Kakoune</span><span>Blender</span><span>Gstreamer</span><span>ranger</span><span>Pry</span><span>TypeScript</span><span>navi</span><span>d-feet</span><span>Mercurial</span><span>LibreOffice</span><span>Audacious</span><span>byobu</span><span>colordiff</span><span>cmus</span><span>ccache</span><span>antimicro</span><span>lftp</span><span>mc</span><span>calcurse</span><span>Deluge</span><span>Terraria</span><span>Wireshark</span><span>sway</span><span>xsettingsd</span><span>tmux</span><span>PulseAudio</span><span>neomutt</span><span>VirtualBox</span><span>broot</span><span>httpie</span><span>ALSA</span><span>pandoc</span><span>nb</span><span>tig</span><span>cargo</span><span>openbox</span><span>asdf</span><span>fish</span><span>fontconfig</span><span>Dolphin</span><span>MultiMC</span><span>pnpm</span><span>GIMP</span><span>binwalk</span><span>Inkscape</span><span>iwd</span><span>mpv</span><span>josm</span><span>Wechat</span>
 	</div>
+	<p>See the <a referrerpolicy='same-origin' target='__blank' rel='noopener' href="https://wiki.archlinux.org/title/XDG_Base_Directory">Arch Wiki</a> for a longer list and more details</p>
 	<p>Do you know or write a program that supports the standard? Make a <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/eankeen/xdgbasedirectoryspecification.com/blob/main/index.html'>PR</a>!</p>
 
 	<h2>I already provide a <code>--config</code> option. Do I really need this?</h2>
 	<p>Absolutely. The ability to specify files or directories with a command-line argument cannot consistently  be used. For example, in Bash, if you define an alias, it won't be used in a non-interactive script since <code>expand_aliases</code> is unset by default. Furthermore, if your program is invoked in any programmatic way (ex. an <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://man7.org/linux/man-pages/man3/exec.3.html'>exec style</a> syscall), there is no reasonable way to ensure that flag is passed.</p>
 
 	<h2>Should I do this on macOS?</h2>
-	<p>Generally speaking, if your program's only interface is a CLI, then it's permissible to follow the XDG Base Directory Specification, even if you aren't on Linux. This is pretty common across the ecosystem. On the other hand, if it's a GUI, then you would usually follow the standard <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFileSystem/Articles/WhereToPutFiles.html'>macOS directory locations</a>. For example, Sublime Text 3 stores it's preferences on macOS in <code>~/Library/Application Support/Sublime Text 3/Packages/User</code>, even if it also ships with a <code>subl</code> command.</p>
+	<p>I've done quite a bit of research, and there doesn't seem to be a common consensus. Generally speaking, if your program's only interface is a CLI, then it's permissible to follow the XDG Base Directory Specification, even if you aren't on Linux. This is pretty common across the ecosystem. On the other hand, if it's a GUI, then you would usually follow the standard <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFileSystem/Articles/WhereToPutFiles.html'>macOS directory locations</a>. For example, Sublime Text 3 stores it's preferences on macOS in <code>~/Library/Application Support/Sublime Text 3/Packages/User</code>, even if it also ships with a <code>subl</code> command.</p>
 
 	<h2>Should I do this on Windows?</h2>
-	<p>I would not recommend following this specification on Windows. Although some widely-used applications like <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://scoop.sh'>scoop</a> follow the spec <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/lukesampson/scoop/commit/2749104e82940fd12f9b2c7b07f5e94fd6ae6017'>for configuration</a>, its usage is not widely prevalent, even compared to macOS.</p>
+	<p>I would not recommend following this specification on Windows. Although some widely-used applications like <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://scoop.sh'>scoop</a> follow the spec <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/lukesampson/scoop/blob/092005046454d94d141d5c68fdbdb4c4a1229ae9/lib/core.ps1#L980'>for configuration</a>, its usage is not widely prevalent, especially compared to macOS.</p>
 
 	<h2>Who are you?</h2>
 	<p>I'm <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://edwinkofler.com'>Edwin Kofler</a>, a software developer that wants to proliferate the knowledge (and implementation) of this specification to a wider group of developers. I have made various pull requests (with most of them already merged) in repositories such as <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/openSUSE/osc/pull/940'>osc</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/sindresorhus/env-paths'>env-paths</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/shd101wyy/mume'>mume</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/basherpm/basher'>basher</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/Foldex/r2mod_cli'>r2modman_cli</a>, and have opened issues in other repositories as well. Together, I hope we can make the home directory clean again!
+	</p>
 
 	<h2>Auxillary resources</h2>
 	<ul>
 		<li><a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html'>Official spec</a></li>
 		<li><a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://wiki.debian.org/XDGBaseDirectorySpecification'>Debian wiki</a></li>
 		<li><a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://wi'>Arch Linux wiki</a></li>
+		<li><a referrerpolicy='same-origin' target='__blank' rel='noopener' href='http://ordiluc.net/fs/libetc'>libetc</a></li>
 	</ul>
 </body>
 </html>
