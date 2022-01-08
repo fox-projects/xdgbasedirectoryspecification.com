@@ -121,6 +121,15 @@ Vids</code></pre>
 
 <p>End users of your application (and hopefully yourself, as well) want a clean home directory. Instead of having files like <code>~/.gitconfig</code> scattered chaotically in the home folder, it would be better for them to reside in a dedicated configuration directory</p>
 
+<p>I like how <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://0x46.net/thoughts/2019/02/01/dotfile-madness'>Filip</a> from <code>0x46.net</code> explained the issue from the perspective of a user</p>
+
+<figure>
+	<blockquote cite="https://0x46.net/thoughts/2019/02/01/dotfile-madness">
+		<p>My own home directory contains 25 ordinary files and 144 hidden files. The dotfiles contain data that doesn't belong to me: it belongs to the programmers whose programs decided to hijack the primary location designed as a storage for my personal files. I can't place those dotfiles anywhere else and they will appear again if I try to delete them. All I can do is sit here knowing that in the darkness, behind the scenes, they are there. . . . I dread the day in which I will hear a loud knock on my door and one of those programmers will barge in informing me that he is going to store a piece of his furniture in the middle of my living room, If I don't mind.</p>
+	</blockquote>
+	<figcaption>Filip from <cite>0x46.net</cite></figcaption>
+</figure>
+
 <p>Succinctly, following the spec means (by the very least) your application files are nearly categorized in subdirectories of the home folder. For instance, locations of cache files default to <code>~/.cache</code> while locations of config files default to <code>~/.config</code>, etc.
 
 <h3>Benefits</h3>
@@ -138,15 +147,6 @@ If you aren't already sold on a clean home directory, there are additional benef
 	<p>Not all applications have a <code>--no-config</code> option (especially GUI applications), and those that do have a <code>--config</code> option do not always work when using <code>/dev/null</code> as a file, shell process substitution, or a simple empty file. It is easiest to set <code>XDG_CONFIG_HOME=/tmp/dir</code></p>
 	<li>Decreased reliance on hard-coded paths (flexibility + composability)</li>
 </ul>
-
-<p>I like how <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://0x46.net/thoughts/2019/02/01/dotfile-madness'>Filip</a> from <code>0x46.net</code> explained the issue from the perspective of a user</p>
-
-<figure>
-    <blockquote cite="https://0x46.net/thoughts/2019/02/01/dotfile-madness">
-        <p>My own home directory contains 25 ordinary files and 144 hidden files. The dotfiles contain data that doesn't belong to me: it belongs to the programmers whose programs decided to hijack the primary location designed as a storage for my personal files. I can't place those dotfiles anywhere else and they will appear again if I try to delete them. All I can do is sit here knowing that in the darkness, behind the scenes, they are there. . . . I dread the day in which I will hear a loud knock on my door and one of those programmers will barge in informing me that he is going to store a piece of his furniture in the middle of my living room, If I don't mind.</p>
-    </blockquote>
-    <figcaption>Filip from <cite>0x46.net</cite></figcaption>
-</figure>
 
 <p>As a more concrete example, imagine that <code>/etc</code> did not exist - configuration would be chaotically scattered about in a way similar to how <code>$HOME</code> exists today. But, because we have <code>/etc</code> specifically designated as a directory for config files (along with other directories) by the <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://refspecs.linuxfoundation.org/fhs.shtml'>File Hierarchy Standard</a>, it is <i>significantly</i> easier to locate, edit, and backup system files <i>across machines</i>. Those ergonomics should not just exist for system-level files, but for the user-level as well.</p>
 
@@ -206,13 +206,11 @@ If you aren't already sold on a clean home directory, there are additional benef
 		<li>If it is not an absolute path (<code>XDG_CONFIG_HOME="./config"</code>)</li>
 	</ol>
 
-	<p>In any of these circumstances is encountered, then the default value should be used instead of the environment variable</p>
-
 	<h2>Code examples</h2>
 
 	<p>Now that you are acquainted with the standard, you probably want to sees some code examples. The following programs are for <b><i>Linux only</i></b> (The XDG Base Dir Spec isn't inherently followed for MacOS and Windows). Of course, if you are actually writing a program, I recommend using a library</p>
 
-	<p>The following is Go 1.13+ code. Note that it does not use <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://pkg.go.dev/os#UserConfigDir'>os.UserConfigDir</a> (<a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/golang/go/blob/6a79f358069195e1cddb821e81fab956d9a0c7d1/src/os/file.go#L500'>Source</a>) for clarity
+	<p>The following is Go 1.13+ code. Note that it does not use <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://pkg.go.dev/os#UserConfigDir'>os.UserConfigDir</a> (<a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/golang/go/blob/90860e0c3110ac5898dfe8e0e0fafd0aea8d979a/src/os/file.go#L444'>Source</a>) since that does not silently ignore non-absolute paths as per the spec</p>
 
 <details>
 	<summary>Show Go</summary>
@@ -227,17 +225,8 @@ import (
 func getConfigDir() (string, error) {
   configDir := os.Getenv("XDG_CONFIG_HOME")
 
-  // If the value of the environment variable is unset or empty, use the default
-  if configDir == "" {
-    homeDir, err := os.UserHomeDir()
-    if err != nil {
-      return "", err
-    }
-    return filepath.Join(homeDir, ".config", "my-application-name"), nil
-  }
-
-  // If the value of the environment variable is not an absolute path, use the default
-  if configDir[0:1] != "/" {
+  // If the value of the environment variable is unset, empty, or not an absolute path, use the default
+  if configDir == "" || configDir[0:1] != "/" {
     homeDir, err := os.UserHomeDir()
     if err != nil {
       return "", err
@@ -252,7 +241,7 @@ func getConfigDir() (string, error) {
 func main() {
   config_dir, err := getConfigDir()
   if err != nil {
-	  log.Fatal(err)
+    panic(err)
   }
 
   fmt.Println(config_dir)
@@ -268,12 +257,8 @@ from pathlib import Path
 def get_config_dir() -> str:
   config_dir = os.getenv('XDG_CONFIG_HOME', '')
 
-  // If the value of the environment variable is unset or empty, use the default
-  if(config_dir == ''):
-    return str(Path.home().joinpath('.config', 'my-application-name'))
-
-  // If the value of the environment variable is not an absolute path, use the default
-  if(config_dir[0] == '/'):
+  // If the value of the environment variable is unset, empty, or not an absolute path, use the default
+  if config_dir == '' or config_dir[0] == '/':
     return str(Path.home().joinpath('.config', 'my-application-name'))
 
   // The value of the environment variable is valid; use it
@@ -283,18 +268,18 @@ config_dir = get_config_dir()
 print(config_dir)</pre>
 </details>
 
-<p>The following is Bash code</p>
+<p>The following is Bash code. Note that it does not use <code>"${XDG_CONFIG_HOME:-$HOME/.config}"</code> since that does not silently ignore non-absolute paths as per the spec</p>
 <details>
 	<summary>Show Bash</summary>
 <pre>get_config_dir() {
   unset REPLY; REPLY=
 
-  # If the value of the environment variable is unset or empty, use the default
-  local config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
+  local config_dir="XDG_CONFIG_HOME"
 
-  # If the value of the environment variable is not an absolute path, use the default
-  if [ "${config_dir::1}" != '/' ]; then
+  # If the value of the environment variable is unset, empty or not an absolute path, use the default
+  if [ -z "$XDG_CONFIG_HOME" ] || [ "${config_dir::1}" != '/' ]; then
     REPLY="$HOME/.config/my-application-name"
+    return
   fi
 
   # The value of the environment variable is valid; use it
@@ -310,9 +295,9 @@ printf '%s\n' "$REPLY"</pre>
 	<p>There is more to the standard, but you should know and implement <i>at least</i> the aforementioned, which is the most important part. If you don't want to implement this yourself, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/dirs-dev/directories-rs'>use</a> <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/adrg/xdg'>a</a> <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/sindresorhus/env-paths'>library</a>. By implementing this, your users will silently thank you!</p>
 
 	<h2>What if I already do the wrong thing and use the home folder directly?</h2>
-	<p>If you write to a few individual files in <code>$HOME</code>, simply check if those files exist before following the XDG Base Directory Specification. Consider the following example, given a traditional config location of <code>~/foo-app.json</code>: If <code>~/foo-app.json</code> exists use it; if it does not exist, then check if <code>$XDG_CONFIG_HOME</code> is set and is non-empty. If it is, then write to <code>$XDG_CONFIG_HOME/foo-app/foo-app.json</code>. If not, then write to <code>$HOME/.config/foo-app/foo-app.json</code></p>
+	<p>If you write to a few individual files in <code>$HOME</code>, simply check if those files exist before following the XDG Base Directory Specification. Consider the following example, given a traditional config location of <code>~/foo-app.json</code>: If <code>~/foo-app.json</code> exists use it; if it does not exist, then check if <code>$XDG_CONFIG_HOME</code> is set and is valid. If it is, then write to <code>$XDG_CONFIG_HOME/foo-app/foo-app.json</code>. If not, then write to <code>$HOME/.config/foo-app/foo-app.json</code></p>
 
-	<p>However if you hold configuration inside a subdirectory of home (ex. <code>~/.ansible</code>), things are a bit less clear-cut. I don't think I would personally recommend placing everything in <code>$XDG_STATE_HOME/application-dir</code>. It would definitely be a good first start to make the location of the directory configurable by an environment variable. For example <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://www.terraform.io'>Terraform</a> exposes this option using <code>TF_DATA_DIR</code>. Even just exposing the directory through an environment variable is <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/eankeen/dots/blob/d534663b655b3e470ba85abca0828ca9b514a0c2/user/config/profile/modules/xdg.sh'><i>incredibly</i> useful</a></p>
+	<p>However if you hold configuration inside a subdirectory of home (ex. <code>~/.ansible</code>), things are a bit less clear-cut. IMoving everything to <code>$XDG_STATE_HOME/application-dir</code> is better, but I'm not sure if I would recommend that. It would definitely be a good first start to make the location of the directory configurable by an environment variable. For example <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://www.terraform.io'>Terraform</a> exposes this option using <code>TF_DATA_DIR</code>. Even just exposing the directory through an environment variable is <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/eankeen/dots/blob/d534663b655b3e470ba85abca0828ca9b514a0c2/user/config/profile/modules/xdg.sh'><i>incredibly</i> useful</a></p>
 
 	<p></p>
 
@@ -321,16 +306,15 @@ printf '%s\n' "$REPLY"</pre>
 		<span>Kitty</span><span>FontForge</span><span>ImageMagick</span><span>Alacritty</span><span>Composer</span><span>Terminator</span><span>clangd</span><span>chezmoi</span><span>aria2</span><span>bat</span><span>i3</span><span>nano</span><span>picom</span><span>poetry</span><span>VLC</span><span>awesome</span><span>aerc</span><span>micro</span><span>Handbrake</span><span>OfflineIMAP</span><span>polybar</span><span>rclone</span><span>xmonad</span><span>mesa</span><span>Godot</span><span>Docker</span><span>Anki</span><span>httpie</span><span>citra</span><span>basher</span><span>asunder</span><span>Transmission</span><span>htop</span><span>Termite</span><span>Git</span><span>Kakoune</span><span>Blender</span><span>Gstreamer</span><span>ranger</span><span>Pry</span><span>TypeScript</span><span>navi</span><span>d-feet</span><span>Mercurial</span><span>LibreOffice</span><span>Audacious</span><span>byobu</span><span>colordiff</span><span>cmus</span><span>ccache</span><span>antimicro</span><span>lftp</span><span>mc</span><span>calcurse</span><span>Deluge</span><span>Terraria</span><span>Wireshark</span><span>sway</span><span>xsettingsd</span><span>tmux</span><span>PulseAudio</span><span>neomutt</span><span>VirtualBox</span><span>broot</span><span>httpie</span><span>ALSA</span><span>pandoc</span><span>nb</span><span>tig</span><span>cargo</span><span>openbox</span><span>asdf</span><span>fish</span><span>fontconfig</span><span>Dolphin</span><span>MultiMC</span><span>pnpm</span><span>GIMP</span><span>binwalk</span><span>Inkscape</span><span>iwd</span><span>mpv</span><span>josm</span><span>Wechat</span>
 	</div>
 	<p>See the <a referrerpolicy='same-origin' target='__blank' rel='noopener' href="https://wiki.archlinux.org/title/XDG_Base_Directory">Arch Wiki</a> for a longer list and more details</p>
-	<p>Do you know or write a program that supports the standard? Make a <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/eankeen/xdgbasedirectoryspecification.com/blob/main/index.html'>PR</a>!</p>
 
 	<h2>I already provide a <code>--config</code> option. Do I really need this?</h2>
-	<p>Absolutely. The ability to specify files or directories with a command-line argument cannot consistently  be used. For example, in Bash, if you define an alias, it won't be used in a non-interactive script since <code>expand_aliases</code> is unset by default. Furthermore, if your program is invoked in any programmatic way (ex. an <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://man7.org/linux/man-pages/man3/exec.3.html'>exec style</a> syscall), there is no reasonable way to ensure that flag is passed.</p>
+	<p>Absolutely. The ability to specify files or directories with a command-line argument cannot consistently  be used. For example, you _could_ define a shell alias, but it won't always be used since the option <code>expand_aliases</code> is unset by default in a non-interactive environment. Furthermore, if your program is invoked in any programmatic way (ex. an <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://man7.org/linux/man-pages/man3/exec.3.html'>exec style</a> syscall), there is no reasonable way to ensure that flag is passed.</p>
 
 	<h2>Should I do this on macOS?</h2>
-	<p>I've done quite a bit of research, and there doesn't seem to be a common consensus. Generally speaking, if your program's only interface is a CLI, then it's permissible to follow the XDG Base Directory Specification, even if you aren't on Linux. This is pretty common across the ecosystem. On the other hand, if it's a GUI, then you would usually follow the standard <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFileSystem/Articles/WhereToPutFiles.html'>macOS directory locations</a>. For example, Sublime Text 3 stores it's preferences on macOS in <code>~/Library/Application Support/Sublime Text 3/Packages/User</code>, even if it also ships with a <code>subl</code> command.</p>
+	<p>I've done quite a bit of research, and there doesn't seem to be a common consensus. Generally speaking, if your program's only interface is a CLI, then it's permissible to follow the XDG Base Directory Specification, even if you aren't on Linux. This seems to be pretty common across the ecosystem, especially for Bash programs. On the other hand, if it's a GUI, then you would usually follow the standard <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFileSystem/Articles/WhereToPutFiles.html'>macOS directory locations</a>. For example, Sublime Text 3 stores it's preferences on macOS in <code>~/Library/Application Support/Sublime Text 3/Packages/User</code>, even if it also ships with a <code>subl</code> command.</p>
 
 	<h2>Should I do this on Windows?</h2>
-	<p>I would not recommend following this specification on Windows. Although some widely-used applications like <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://scoop.sh'>scoop</a> follow the spec <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/lukesampson/scoop/blob/092005046454d94d141d5c68fdbdb4c4a1229ae9/lib/core.ps1#L980'>for configuration</a>, its usage is not widely prevalent, especially compared to macOS.</p>
+	<p>I don't have a straight answer for you, simply because I don't use Windows frequently enough. I'll add that Windows already has a preexisting directory to place user data. Notwithstanding this fact, widely-used applications like <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://scoop.sh'>scoop</a> follow the spec <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/lukesampson/scoop/blob/092005046454d94d141d5c68fdbdb4c4a1229ae9/lib/core.ps1#L980'>for configuration</a>. Another command line app, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/vexx32/PSKoans'>PSKoans</a> hard-codes `~/.config`. Admittedly, its usage is not widely prevalent, especially compared to macOS, so the answer would be closer to a "no"</p>
 
 	<h2>Who are you?</h2>
 	<p>I'm <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://edwinkofler.com'>Edwin Kofler</a>, a software developer that wants to proliferate the knowledge (and implementation) of this specification to a wider group of developers. I have made various pull requests (with most of them already merged) in repositories such as <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/openSUSE/osc/pull/940'>osc</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/sindresorhus/env-paths'>env-paths</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/shd101wyy/mume'>mume</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/basherpm/basher'>basher</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/Foldex/r2mod_cli'>r2modman_cli</a>, and have opened issues in other repositories as well. Together, I hope we can make the home directory clean again!
