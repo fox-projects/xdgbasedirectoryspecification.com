@@ -1,9 +1,11 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
 	border: 0 none;
 }
 
 body {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, ui-sans-serif, sans-serif;
+	font-family: ui-sans-serif, Helvetica, Arial, sans-serif;
 
 	color: #212529;
 	background-color: #f8f9fa;
@@ -24,12 +26,16 @@ code {
 	border-radius: 2px;
 }
 
-.title:active, .title:hover, .title:visited, .title:link {
+.title:active,
+.title:hover,
+.title:visited,
+.title:link {
 	color: inherit;
 	text-decoration-color: #adb5bd;
 }
 
-.ls-long code, .ls-short code {
+.ls-long code,
+.ls-short code {
 	display: inline-block;
 	padding: 4px;
 	border-radius: 2px;
