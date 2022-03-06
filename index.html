@@ -274,10 +274,10 @@ print(config_dir)</pre>
 <pre>get_config_dir() {
   unset REPLY; REPLY=
 
-  local config_dir="XDG_CONFIG_HOME"
+  local config_dir="$XDG_CONFIG_HOME"
 
   # If the value of the environment variable is unset, empty or not an absolute path, use the default
-  if [ -z "$XDG_CONFIG_HOME" ] || [ "${config_dir::1}" != '/' ]; then
+  if [ -z "$config_dir" ] || [ "${config_dir::1}" != '/' ]; then
     REPLY="$HOME/.config/my-application-name"
     return
   fi
