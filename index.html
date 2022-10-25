@@ -272,7 +272,7 @@ def get_config_dir() -> str:
   config_dir = os.getenv('XDG_CONFIG_HOME', '')
 
   // If the value of the environment variable is unset, empty, or not an absolute path, use the default
-  if config_dir == '' or config_dir[0] == '/':
+  if config_dir == '' or config_dir[0] != '/':
     return str(Path.home().joinpath('.config', 'my-application-name'))
 
   // The value of the environment variable is valid; use it
