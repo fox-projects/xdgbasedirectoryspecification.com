@@ -10,7 +10,9 @@ body {
 	color: #212529;
 	background-color: #f8f9fa;
 	font-size: 18px;
+}
 
+main {
 	max-width: 1200px;
 }
 
@@ -61,4 +63,12 @@ table {
 	margin: 2px;
 	border-radius: 3px;
 	background-color: #f1f3f5;
+}
+
+footer {
+	text-align: center;
+}
+
+footer > span {
+	margin-inline-end: 5px;
 }

@@ -24,6 +24,7 @@
 <body>
 	<h1><b>Use the <a referrerpolicy='same-origin' target='__blank' rel='noopener' class='title' href='https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html'>XDG Base Directory Specification</b></a>!</h1>
 
+	<main>
 	<h2>Why?</h2>
 	<p>Look at your home</p>
 	<pre class='ls-long'><code>$ exa -al --no-filesize --no-user --no-time --no-permissions --color=never ~
@@ -332,7 +333,7 @@ printf '%s\n' "$REPLY"</pre>
 	<p>I don't have a straight answer for you, simply because I don't use Windows frequently enough. I'll add that Windows already has a preexisting directory to place user data. Notwithstanding this fact, widely-used applications like <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://scoop.sh'>scoop</a> follow the spec <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/lukesampson/scoop/blob/092005046454d94d141d5c68fdbdb4c4a1229ae9/lib/core.ps1#L980'>for configuration</a>. Another command line app, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/vexx32/PSKoans'>PSKoans</a> hard-codes <code>~/.config</code>. Admittedly, its usage is not widely prevalent, especially compared to macOS, so the answer would be closer to a "no"</p>
 
 	<h3>Who are you?</h3>
-	<p>I'm <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://edwinkofler.com'>Edwin Kofler</a>, a software developer that wants to proliferate the knowledge (and implementation) of this specification to a wider group of developers. I have made various pull requests (most of them merged) in repositories such as <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/openSUSE/osc/pull/940'>osc</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/sindresorhus/env-paths'>env-paths</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/shd101wyy/mume'>mume</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/basherpm/basher'>basher</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/Foldex/r2mod_cli'>r2modman_cli</a>, and <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/search?l=&q=XDG+author%3Ahyperupcall+is%3Apr&type=issues'>more</a>! Together, I hope we can make the home directory clean again!
+	<p>I'm <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://edwinkofler.com'>Edwin Kofler</a>, a software developer that wants to proliferate the knowledge (and implementation) of this specification to a wider group of developers. I've opened issues (that are now fixed) in repositories such as <a referrerpolicy='same-origin' target='__blank' rel='noopener' href="https://github.com/python-poetry/poetry/issues/1659">Poetry</a> and <a referrerpolicy='same-origin' target='__blank' rel='noopener' href="https://github.com/pnpm/pnpm/issues/2574">pnpm</a>, and have proposed PRs (that are now merged) in repositories such as <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/openSUSE/osc/pull/940'>osc</a>, <a href="https://github.com/vscode-kubernetes-tools/vscode-kubernetes-tools/pull/1081">vscode-kubernetes-tools</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/shd101wyy/mume/pull/234'>mume</a>, <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/basherpm/basher/pull/98'>basher</a>, and <a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/search?l=&q=XDG+author%3Ahyperupcall+is%3Apr&type=issues'>more</a>! Together, I hope we can make the home directory clean again!
 	</p>
 
 	<h3>Auxillary resources</h3>
@@ -342,5 +343,10 @@ printf '%s\n' "$REPLY"</pre>
 		<li><a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://wiki.archlinux.org/title/XDG_Base_Directory'>Arch Linux wiki</a></li>
 		<li><a referrerpolicy='same-origin' target='__blank' rel='noopener' href='http://ordiluc.net/fs/libetc'>libetc</a></li>
 	</ul>
+	</main>
+
+	<footer>
+		<span>© Edwin Kofler</span><span>·</span><a referrerpolicy='same-origin' target='__blank' rel='noopener' href='https://github.com/hyperupcall/xdgbasedirectoryspecification.com'>Source</a>
+	</footer>
 </body>
 </html>
