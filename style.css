@@ -10,10 +10,10 @@ body {
 	color: #212529;
 	background-color: #f8f9fa;
 	font-size: 18px;
+	margin-inline-start: 10px;
 }
 
 main {
-	margin-inline-start: 10px;
 	max-width: 1200px;
 }
 
