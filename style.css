@@ -13,6 +13,7 @@ body {
 }
 
 main {
+	margin-inline-start: 10px;
 	max-width: 1200px;
 }
 
