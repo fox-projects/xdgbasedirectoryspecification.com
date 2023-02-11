@@ -11,6 +11,7 @@ body {
 	background-color: #f8f9fa;
 	font-size: 18px;
 	margin-inline-start: 10px;
+	margin-inline-end: 25px;
 }
 
 main {
@@ -70,6 +71,8 @@ footer {
 	text-align: center;
 }
 
-footer > span {
+footer > :not(:last-child) {
 	margin-inline-end: 5px;
 }
+
+
