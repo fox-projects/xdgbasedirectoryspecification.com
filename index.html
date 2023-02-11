@@ -27,15 +27,13 @@
 	<main>
 	<h2>Why?</h2>
 	<p>Look at your home</p>
-	<pre class='ls-long'><code>$ exa -al --no-filesize --no-user --no-time --no-permissions --color=never ~
-.alsoftrc -> /home/edwin/.dots/user/.alsoftrc
+	<pre class='ls-long'><code>$ find ~ -mindepth 1 -maxdepth 1 -type f -printf '%f\n' -or -type d -printf '%f/\n'
+.alsoftrc
 .android/
 .ansible/
 .aqbanking/
 .audacity-data/
-.bash_logout -> /home/edwin/.dots/user/.bash_logout
-.bash_profile -> /home/edwin/.dots/user/.bash_profile
-.bashrc -> /home/edwin/config/bash/bashrc.sh
+.bashrc
 .cache/
 .choosenim/
 .code-d/
@@ -43,9 +41,9 @@
 config/
 .cpan/
 data/
-Desk/
-Dls -> /storage/edwin/Dls/
-Docs -> /storage/edwin/Docs/
+Desktop/
+Downloads/
+Documents/
 .eclipse/
 .elementary/
 .emacs.d/
@@ -67,7 +65,7 @@ Docs -> /storage/edwin/Docs/
 HomeBank-20210521.bak
 HomeBank-20210607.bak
 HomeBank-20210611.bak
-.hushlogin -> /home/edwin/.dots/user/.hushlogin
+.hushlogin
 .idapro/
 .ivy2/
 .java/
@@ -84,55 +82,56 @@ macOS.vdi
 .metals/
 .minecraft/
 .mono/
-.mozilla -> /storage/data/mozilla/
+.mozilla
 .mputils/
 .mume/
-Music -> /storage/edwin/Music/
+Music/
 .omnisharp/
 .ort/
 .osc_cookiejar
 .pack/
 .paradoxlauncher/
 .parsec/
-Pics -> /storage/edwin/Pics/
+Pictures/
 .pki/
 .pm2/
-.profile -> /home/edwin/config/profile/profile.sh
+.profile
 .pythonhist
 .sbt/
 .scim/
-.ssh -> /storage/data/ssh/
+.ssh/
 .steam/
-.steampath -> /home/edwin/.steam/sdk32/steam
-.steampid -> /home/edwin/.steam/steam.pid
+.steampath
+.steampid
 .step/
 .subversion/
 .swt/
 .tooling/
 'Universe Sandbox'/
-Vids -> /storage/edwin/Vids/
+Videos/
 .vscode/
 .w3m/
 .wine/
-.xinitrc -> /home/edwin/config/X11/xinitrc*
-.yarnrc -> /home/edwin/.dots/user/.yarnrc
+.xinitrc
+.yarnrc
 .zcompdump
 .zoom/
-.zshenv -> /home/edwin/config/zsh/.zshenv</code></pre>
+.zshenv</code></pre>
 
 	<p>What if your house was clean and tidy?</p>
 
-	<pre class='ls-short'><code>$ exa -al --no-filesize --no-user --no-time --no-permissions --color=never ~
+	<pre class='ls-short'><code>$ find ~ -mindepth 1 -maxdepth 1 -type f -printf '%f\n' -or -type d -printf '%f/\n'
+.bashrc
 .cache/
 .config/
-Desk/
-Dls
-Docs
+Desktop/
+Downloads/
+Documents/
 .local/
-Music
-Pics
+Music/
+Pictures/
 .profile
-Vids</code></pre>
+Videos/</code></pre>
 
 <p>End users of your application (and hopefully yourself, as well) want a clean home directory. Instead of having files like <code>~/.gitconfig</code> scattered chaotically in the home folder, it would be better for them to reside in a dedicated configuration directory</p>
 
