@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<base target="_blank">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="referrer" content="same-origin" />
 	<meta name="google-site-verification" content="843HIjF63-uJN0UrleQDJudytAPWccj3FfyOMDXiqp4" />
 
 	<title>Use the XDG Base Directory Specification!</title>
@@ -25,7 +25,7 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<h1><b>Use the <a referrerpolicy='same-origin' rel='noopener' class='title' href='https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html'>XDG Base Directory Specification</a></b>!</h1>
+	<h1><b>Use the <a class='title' href='https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html'>XDG Base Directory Specification</a></b>!</h1>
 
 	<main>
 	<h2>Why?</h2>
@@ -138,7 +138,7 @@ Videos/</code></pre>
 
 <p>End users of your application (and hopefully yourself, as well) want a clean home directory. Instead of having files like <code>~/.gitconfig</code> scattered chaotically in the home folder, it would be better for them to reside in a dedicated configuration directory.</p>
 
-<p>I like how <a referrerpolicy='same-origin' rel='noopener' href='https://0x46.net/thoughts/2019/02/01/dotfile-madness'>Filip</a> from <code>0x46.net</code> explained the issue from the perspective of a user:</p>
+<p>I like how <a href='https://0x46.net/thoughts/2019/02/01/dotfile-madness'>Filip</a> from <code>0x46.net</code> explained the issue from the perspective of a user:</p>
 
 <figure>
 	<blockquote cite="https://0x46.net/thoughts/2019/02/01/dotfile-madness">
@@ -165,16 +165,16 @@ Videos/</code></pre>
 	<li>Decreased reliance on hard-coded paths (flexibility + composability)</li>
 </ul>
 
-<p>As a more concrete example, imagine that <code>/etc</code> did not exist - configuration would be chaotically scattered about in a way similar to how <code>$HOME</code> exists today. But, because we have <code>/etc</code> specifically designated as a directory for config files (along with other directories) by the <a referrerpolicy='same-origin' rel='noopener' href='https://refspecs.linuxfoundation.org/fhs.shtml'>File Hierarchy Standard</a>, it is <i>significantly</i> easier to locate, edit, and backup system files <i>across machines</i>. Those ergonomics should not just exist for system-level files, but for the user-level as well.</p>
+<p>As a more concrete example, imagine that <code>/etc</code> did not exist - configuration would be chaotically scattered about in a way similar to how <code>$HOME</code> exists today. But, because we have <code>/etc</code> specifically designated as a directory for config files (along with other directories) by the <a href='https://refspecs.linuxfoundation.org/fhs.shtml'>File Hierarchy Standard</a>, it is <i>significantly</i> easier to locate, edit, and backup system files <i>across machines</i>. Those ergonomics should not just exist for system-level files, but for the user-level as well.</p>
 
-<p>Thus, I implore, I <i>beg</i> all you application developers to implement the <a referrerpolicy='same-origin' rel='noopener' href='https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html'>XDG Base Directory Specification</a>.</p>
+<p>Thus, I implore, I <i>beg</i> all you application developers to implement the <a href='https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html'>XDG Base Directory Specification</a>.</p>
 	<h2>How?</h2>
 	<p>First, categorize the files that your program needs to write into four categories:</p>
 	<ol>
 		<li>Configuration</li>
 		<p>Configuration files that affect the behavior of an program. Even if the configuration file is not meant to be human-editable, it likely belongs here.</p>
 		<li>Data</li>
-		<p>General files and data that is inherently portable across computers. Examples include fonts, files downloaded from the internet, and <a referrerpolicy='same-origin' rel='noopener' href='https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html'>desktop entries</a>.</p>
+		<p>General files and data that is inherently portable across computers. Examples include fonts, files downloaded from the internet, and <a href='https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html'>desktop entries</a>.</p>
 		<li>State</li>
 		<p>Files that hold the state of the application. This may include logs, command history, recently used files, and game save data. In other words, if the data is unique for a given machine, the file belongs here.</p>
 		<li>Cache</li>
@@ -188,7 +188,7 @@ Videos/</code></pre>
 			<th>Category</th>
 			<th>Environment Variable</th>
 			<th>Default Value</th>
-			<th><a referrerpolicy='same-origin' rel='noopener' href='https://refspecs.linuxfoundation.org/fhs.shtml'>FHS</a> Approximation</th>
+			<th><a href='https://refspecs.linuxfoundation.org/fhs.shtml'>FHS</a> Approximation</th>
 		</tr>
 		<tr>
 			<td>Configuration</td>
@@ -225,7 +225,7 @@ Videos/</code></pre>
 
 	<h2>Code examples</h2>
 	<p>Now that you're acquainted with the standard, you probably want to sees some code examples. The following programs are for <b><i>Linux only</i></b> (See the FAQ below for details on MacOS and Windows). Of course, if you are actually writing a program, I recommend using a library.</p>
-	<p>The following is Go 1.13+ code. Note that it does not use <a referrerpolicy='same-origin' rel='noopener' href='https://pkg.go.dev/os#UserConfigDir'>os.UserConfigDir</a> (<a referrerpolicy='same-origin' rel='noopener' href='https://github.com/golang/go/blob/90860e0c3110ac5898dfe8e0e0fafd0aea8d979a/src/os/file.go#L444'>Source</a>) since that does not silently ignore non-absolute paths as per the spec</p>
+	<p>The following is Go 1.13+ code. Note that it does not use <a href='https://pkg.go.dev/os#UserConfigDir'>os.UserConfigDir</a> (<a href='https://github.com/golang/go/blob/90860e0c3110ac5898dfe8e0e0fafd0aea8d979a/src/os/file.go#L444'>Source</a>) since that does not silently ignore non-absolute paths as per the spec</p>
 
 <details>
 	<summary>Show Go</summary>
@@ -263,7 +263,7 @@ func main() {
 }</pre>
 </details>
 
-<p>The following is Python 3.5+ code. It uses <a referrerpolicy='same-origin' rel='noopener' href='https://docs.python.org/3/library/pathlib.html#pathlib.Path.home'>Path.home</a> (<a referrerpolicy='same-origin' rel='noopener' href='https://github.com/python/cpython/blob/ec4d917a6a68824f1895f75d113add9410283da7/Lib/pathlib.py#L994'>Source</a>) (which uses <a referrerpolicy='same-origin' rel='noopener' href='https://docs.python.org/3/library/pathlib.html#pathlib.Path.home'>os.path.expanduser</a> (<a referrerpolicy='same-origin' rel='noopener' href='https://github.com/python/cpython/blob/ec4d917a6a68824f1895f75d113add9410283da7/Lib/posixpath.py#L228'>Source</a>))</p>
+<p>The following is Python 3.5+ code. It uses <a href='https://docs.python.org/3/library/pathlib.html#pathlib.Path.home'>Path.home</a> (<a href='https://github.com/python/cpython/blob/ec4d917a6a68824f1895f75d113add9410283da7/Lib/pathlib.py#L994'>Source</a>) (which uses <a href='https://docs.python.org/3/library/pathlib.html#pathlib.Path.home'>os.path.expanduser</a> (<a href='https://github.com/python/cpython/blob/ec4d917a6a68824f1895f75d113add9410283da7/Lib/posixpath.py#L228'>Source</a>))</p>
 <details>
 	<summary>Show Python</summary>
 <pre>import sys, os
@@ -308,12 +308,12 @@ printf '%s\n' "$REPLY"</pre>
 <br>
 	<h2>FAQ</h2>
 	<h3>Is that it?</h3>
-	<p>There is more to the standard, but you should know and implement <i>at least</i> the aforementioned, which is the most important part. If you don't want to implement this yourself, <a referrerpolicy='same-origin' rel='noopener' href='https://github.com/dirs-dev/directories-rs'>use</a> <a referrerpolicy='same-origin' rel='noopener' href='https://github.com/adrg/xdg'>a</a> <a referrerpolicy='same-origin' rel='noopener' href='https://github.com/sindresorhus/env-paths'>library</a>. By implementing this, your users will silently thank you!</p>
+	<p>There is more to the standard, but you should know and implement <i>at least</i> the aforementioned, which is the most important part. If you don't want to implement this yourself, <a href='https://github.com/dirs-dev/directories-rs'>use</a> <a href='https://github.com/adrg/xdg'>a</a> <a href='https://github.com/sindresorhus/env-paths'>library</a>. By implementing this, your users will silently thank you!</p>
 
 	<h3>What if I already do the wrong thing and use the home folder directly?</h3>
 	<p>If you write to a few individual files in <code>$HOME</code>, simply check if those files exist before following the XDG Base Directory Specification. Consider the following example, given a traditional config location of <code>~/foo-app.json</code>: If <code>~/foo-app.json</code> exists use it; if it does not exist, then check if <code>$XDG_CONFIG_HOME</code> is set and is valid. If it is, then write to <code>$XDG_CONFIG_HOME/foo-app/foo-app.json</code>. If not, then write to <code>$HOME/.config/foo-app/foo-app.json</code>.</p>
 
-	<p>However if you hold all configuration and data inside a subdirectory of home (ex. <code>~/.ansible</code>), things are a bit less clear-cut. Moving everything to <code>$XDG_STATE_HOME/application-dir</code> would be easiest to the application developer, but less semantically correct. If you don't want to worry about migrating multiple files to separate directories, it would be a good first start to make the location of the directory configurable by an environment variable. For example, <a referrerpolicy='same-origin' rel='noopener' href='https://www.terraform.io'>Terraform</a> exposes this option using <code>TF_DATA_DIR</code>. Even just exposing the directory through an environment variable is <a referrerpolicy='same-origin' rel='noopener' href='https://github.com/eankeen/dots/blob/d534663b655b3e470ba85abca0828ca9b514a0c2/user/config/profile/modules/xdg.sh'><i>incredibly</i> useful</a>.</p>
+	<p>However if you hold all configuration and data inside a subdirectory of home (ex. <code>~/.ansible</code>), things are a bit less clear-cut. Moving everything to <code>$XDG_STATE_HOME/application-dir</code> would be easiest to the application developer, but less semantically correct. If you don't want to worry about migrating multiple files to separate directories, it would be a good first start to make the location of the directory configurable by an environment variable. For example, <a href='https://www.terraform.io'>Terraform</a> exposes this option using <code>TF_DATA_DIR</code>. Even just exposing the directory through an environment variable is <a href='https://github.com/eankeen/dots/blob/d534663b655b3e470ba85abca0828ca9b514a0c2/user/config/profile/modules/xdg.sh'><i>incredibly</i> useful</a>.</p>
 
 	<p></p>
 
@@ -321,34 +321,34 @@ printf '%s\n' "$REPLY"</pre>
 	<div class='compliant-software'>
 		<span>Kitty</span><span>FontForge</span><span>ImageMagick</span><span>Alacritty</span><span>Composer</span><span>Terminator</span><span>clangd</span><span>chezmoi</span><span>aria2</span><span>bat</span><span>i3</span><span>nano</span><span>picom</span><span>poetry</span><span>VLC</span><span>awesome</span><span>aerc</span><span>micro</span><span>Handbrake</span><span>OfflineIMAP</span><span>polybar</span><span>rclone</span><span>xmonad</span><span>mesa</span><span>Godot</span><span>Docker</span><span>Anki</span><span>httpie</span><span>citra</span><span>basher</span><span>asunder</span><span>Transmission</span><span>htop</span><span>Termite</span><span>Git</span><span>Kakoune</span><span>Blender</span><span>Gstreamer</span><span>ranger</span><span>Pry</span><span>TypeScript</span><span>navi</span><span>d-feet</span><span>Mercurial</span><span>LibreOffice</span><span>Audacious</span><span>byobu</span><span>colordiff</span><span>cmus</span><span>ccache</span><span>antimicro</span><span>lftp</span><span>mc</span><span>calcurse</span><span>Deluge</span><span>Terraria</span><span>Wireshark</span><span>sway</span><span>xsettingsd</span><span>tmux</span><span>PulseAudio</span><span>neomutt</span><span>VirtualBox</span><span>broot</span><span>httpie</span><span>ALSA</span><span>pandoc</span><span>nb</span><span>tig</span><span>cargo</span><span>openbox</span><span>asdf</span><span>fish</span><span>fontconfig</span><span>Dolphin</span><span>MultiMC</span><span>pnpm</span><span>GIMP</span><span>binwalk</span><span>Inkscape</span><span>iwd</span><span>mpv</span><span>josm</span><span>Wechat</span>
 	</div>
-	<p>See the <a referrerpolicy='same-origin' rel='noopener' href="https://wiki.archlinux.org/title/XDG_Base_Directory">Arch Wiki</a> for a longer list and more details.</p>
+	<p>See the <a href="https://wiki.archlinux.org/title/XDG_Base_Directory">Arch Wiki</a> for a longer list and more details.</p>
 
 	<h3>I already provide a <code>--config</code> option. Do I really need this?</h3>
-	<p>Absolutely! The ability to specify files or directories with a command-line argument cannot consistently  be used. For example, you <i>could</i> define a shell alias, but it won't always be used since the Bash option <code>expand_aliases</code> is unset by default in a non-interactive environment. Furthermore, if your program is invoked in any programmatic way (ex. an <a referrerpolicy='same-origin' rel='noopener' href='https://man7.org/linux/man-pages/man3/exec.3.html'>exec style</a> syscall), there is no reasonable way to ensure that flag is passed.</p>
+	<p>Absolutely! The ability to specify files or directories with a command-line argument cannot consistently  be used. For example, you <i>could</i> define a shell alias, but it won't always be used since the Bash option <code>expand_aliases</code> is unset by default in a non-interactive environment. Furthermore, if your program is invoked in any programmatic way (ex. an <a href='https://man7.org/linux/man-pages/man3/exec.3.html'>exec style</a> syscall), there is no reasonable way to ensure that flag is passed.</p>
 
 	<h3>Should I do this on macOS?</h3>
-	<p>I've done quite a bit of research, and there doesn't seem to be a common consensus. Generally speaking, if your program's only interface is a CLI, then it's permissible to follow the XDG Base Directory Specification, even if you aren't on Linux. This seems to be pretty common across the ecosystem, especially for Bash programs. On the other hand, if it's a GUI, then you would usually follow the standard <a referrerpolicy='same-origin' rel='noopener' href='https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFileSystem/Articles/WhereToPutFiles.html'>macOS directory locations</a>. For example, Sublime Text 3 stores it's preferences on macOS in <code>~/Library/Application Support/Sublime Text 3/Packages/User</code>, even if it also ships with a <code>subl</code> command.</p>
+	<p>I've done quite a bit of research, and there doesn't seem to be a common consensus. Generally speaking, if your program's only interface is a CLI, then it's permissible to follow the XDG Base Directory Specification, even if you aren't on Linux. This seems to be pretty common across the ecosystem, especially for Bash programs. On the other hand, if it's a GUI, then you would usually follow the standard <a href='https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFileSystem/Articles/WhereToPutFiles.html'>macOS directory locations</a>. For example, Sublime Text 3 stores it's preferences on macOS in <code>~/Library/Application Support/Sublime Text 3/Packages/User</code>, even if it also ships with a <code>subl</code> command.</p>
 
 	<h3>Should I do this on Windows?</h3>
-	<p>I don't have a straight answer for you, simply because I don't use Windows frequently enough. I'll add that Windows already has a preexisting directory to place user data. Notwithstanding this fact, widely-used applications like <a referrerpolicy='same-origin' rel='noopener' href='https://scoop.sh'>scoop</a> follow the spec <a referrerpolicy='same-origin' rel='noopener' href='https://github.com/lukesampson/scoop/blob/092005046454d94d141d5c68fdbdb4c4a1229ae9/lib/core.ps1#L980'>for configuration</a>. Another command line app, <a referrerpolicy='same-origin' rel='noopener' href='https://github.com/vexx32/PSKoans'>PSKoans</a> hard-codes <code>~/.config</code>. Admittedly, its usage is not widely prevalent, especially compared to macOS, so the answer would be closer to a "no".</p>
+	<p>I don't have a straight answer for you, simply because I don't use Windows frequently enough. I'll add that Windows already has a preexisting directory to place user data. Notwithstanding this fact, widely-used applications like <a href='https://scoop.sh'>scoop</a> follow the spec <a href='https://github.com/lukesampson/scoop/blob/092005046454d94d141d5c68fdbdb4c4a1229ae9/lib/core.ps1#L980'>for configuration</a>. Another command line app, <a href='https://github.com/vexx32/PSKoans'>PSKoans</a> hard-codes <code>~/.config</code>. Admittedly, its usage is not widely prevalent, especially compared to macOS, so the answer would be closer to a "no".</p>
 
 	<h3>Who are you?</h3>
-	<p>I'm <a referrerpolicy='same-origin' rel='noopener' href='https://edwinkofler.com'>Edwin Kofler</a>, a software developer that wants to proliferate the knowledge (and implementation) of this specification to a wider group of developers. I've opened issues (that are now fixed) in repositories such as <a referrerpolicy='same-origin' rel='noopener' href="https://github.com/python-poetry/poetry/issues/1659">Poetry</a> and <a referrerpolicy='same-origin' rel='noopener' href="https://github.com/pnpm/pnpm/issues/2574">pnpm</a>, and have proposed PRs (that are now merged) in repositories such as <a referrerpolicy='same-origin' rel='noopener' href='https://github.com/openSUSE/osc/pull/940'>osc</a>, <a href="https://github.com/vscode-kubernetes-tools/vscode-kubernetes-tools/pull/1081">vscode-kubernetes-tools</a>, <a referrerpolicy='same-origin' rel='noopener' referrerpolicy='same-origin' rel='noopener' href='https://github.com/shd101wyy/mume/pull/234'>mume</a>, <a referrerpolicy='same-origin' rel='noopener' href='https://github.com/basherpm/basher/pull/98'>basher</a>, and <a referrerpolicy='same-origin' rel='noopener' href='https://github.com/search?l=&q=XDG+author%3Ahyperupcall&type=pullrequests'>more</a>! Together, I hope we can make the home directory clean again!
+	<p>I'm <a href='https://edwinkofler.com'>Edwin Kofler</a>, a software developer that wants to proliferate the knowledge (and implementation) of this specification to a wider group of developers. I've opened issues (that are now fixed) in repositories such as <a href="https://github.com/python-poetry/poetry/issues/1659">Poetry</a> and <a href="https://github.com/pnpm/pnpm/issues/2574">pnpm</a>, and have proposed PRs (that are now merged) in repositories such as <a href='https://github.com/openSUSE/osc/pull/940'>osc</a>, <a href="https://github.com/vscode-kubernetes-tools/vscode-kubernetes-tools/pull/1081">vscode-kubernetes-tools</a>, <a href='https://github.com/shd101wyy/mume/pull/234'>mume</a>, <a href='https://github.com/basherpm/basher/pull/98'>basher</a>, and <a href='https://github.com/search?l=&q=XDG+author%3Ahyperupcall&type=pullrequests'>more</a>! Together, I hope we can make the home directory clean again!
 	</p>
 
 	<h3>Auxillary resources</h3>
 	<ul>
-		<li><a referrerpolicy='same-origin' rel='noopener' href='https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html'>Official spec</a></li>
-		<li><a referrerpolicy='same-origin' rel='noopener' href='https://wiki.debian.org/XDGBaseDirectorySpecification'>Debian wiki</a></li>
-		<li><a referrerpolicy='same-origin' rel='noopener' href='https://wiki.archlinux.org/title/XDG_Base_Directory'>Arch Linux wiki</a></li>
-		<li><a referrerpolicy='same-origin' rel='noopener' href='http://ordiluc.net/fs/libetc'>libetc</a>: A shared library using the <code>LD_PRELOAD</code> trick to force storing files/directories in the proper place</li>
-		<li><a referrerpolicy='same-origin' rel='noopener' href='https://github.com/queer/boxxy'>boxxy</a>: Script that uses bind-mounting shenanigans to force storing files/directories in the proper place</li>
-		<li><a referrerpolicy='same-origin' rel='noopener' href='https://github.com/b3nj5m1n/xdg-ninja'>xdg-ninja</a>: a shell script that checks <code>$HOME</code> for unwanted files and directories</li>
+		<li><a href='https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html'>Official spec</a></li>
+		<li><a href='https://wiki.debian.org/XDGBaseDirectorySpecification'>Debian wiki</a></li>
+		<li><a href='https://wiki.archlinux.org/title/XDG_Base_Directory'>Arch Linux wiki</a></li>
+		<li><a href='http://ordiluc.net/fs/libetc'>libetc</a>: A shared library using the <code>LD_PRELOAD</code> trick to force storing files/directories in the proper place</li>
+		<li><a href='https://github.com/queer/boxxy'>boxxy</a>: Script that uses bind-mounting shenanigans to force storing files/directories in the proper place</li>
+		<li><a href='https://github.com/b3nj5m1n/xdg-ninja'>xdg-ninja</a>: a shell script that checks <code>$HOME</code> for unwanted files and directories</li>
 	</ul>
 	</main>
 
 	<footer>
-		<span>© Edwin Kofler</span><span>·</span><a referrerpolicy='same-origin' rel='noopener' href='https://github.com/hyperupcall/xdgbasedirectoryspecification.com'>Source</a>
+		<span>© Edwin Kofler</span><span>·</span><a href='https://github.com/hyperupcall/xdgbasedirectoryspecification.com'>Source</a>
 	</footer>
 </body>
 </html>
