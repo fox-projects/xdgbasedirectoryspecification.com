@@ -160,8 +160,10 @@ Videos/</code></pre>
 	<p>Since all settings are in a single directory, they can more easily be shared across computer systems.</p>
 	<li>Easier to isolate application state</li>
 	<p>Since all data specific to a single machine is in a single directory, you can easily avoid sharing it between systems when sharing data or backups.</p>
-	<li>Easier to temporarily ignore the config</li>
+	<li>Easier to temporarily ignore config</li>
 	<p>Not all applications have a <code>--no-config</code> option (especially GUI applications), and those that do have a <code>--config</code> option do not always work when using <code>/dev/null</code> as a file, shell process substitution, or a simple empty file. It is easiest to set <code>XDG_CONFIG_HOME=/tmp/dir</code>.</p>
+	<li>Easier to implement ACL</li>
+	<p>It can be difficult to constrain system access for an application that writes files directly in <code>$HOME</code>. Since all directories are specific to a particular application, implementing access control patterns is easier.</p>
 	<li>Decreased reliance on hard-coded paths (flexibility + composability)</li>
 </ul>
 
