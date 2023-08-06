@@ -1,5 +1,5 @@
 # shellcheck shell=bash
 
 task.format() {
-	pnpx prettier "*.{html,css}"
+	pnpm prettier "*.{html,css}" --write
 }
