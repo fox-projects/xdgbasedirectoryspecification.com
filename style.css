@@ -8,7 +8,7 @@ body {
 	font-family: ui-sans-serif, Helvetica, Arial, sans-serif;
 
 	color: #212529;
-	background-color: #f8f9fa;
+	background-color: #fcfcfc;
 	font-size: 18px;
 	margin-inline-start: 10px;
 	margin-inline-end: 25px;
@@ -25,7 +25,7 @@ p {
 code {
 	font-family: ui-monospace, monospace;
 	font-size: 90%;
-	background-color: #f1f3f5;
+	background-color: #f8f9fa;
 	padding: 1px;
 	border-radius: 2px;
 }
@@ -43,7 +43,8 @@ table {
 	text-decoration-color: #adb5bd;
 }
 
-.ls-long, .ls-short {
+.ls-long,
+.ls-short {
 	overflow: auto;
 }
 
@@ -74,5 +75,3 @@ footer {
 footer > :not(:last-child) {
 	margin-inline-end: 5px;
 }
-
-
