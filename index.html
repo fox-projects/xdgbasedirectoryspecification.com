@@ -37,7 +37,33 @@
 			async
 			src="https://gc.zgo.at/count.js"
 		></script>
-		<link rel="stylesheet" href="style.css" />
+		<style>
+			.ls-long,
+			.ls-short {
+				overflow: auto;
+				max-height: 300px;
+				display: inline-block;
+				max-width: 100%;
+			}
+
+			ul > p,
+			ol > p {
+				margin-inline-start: 10px;
+			}
+
+			.compliant-software span {
+				display: inline-block;
+				padding: 3px;
+				margin: 2px;
+				border-radius: 3px;
+				background-color: #f1f3f5;
+			}
+
+			main {
+				max-width: 1200px;
+			}
+		</style>
+		<link rel="stylesheet" href="./fox-light.min.css" />
 	</head>
 	<body>
 		<h1>
@@ -267,12 +293,12 @@ Videos/</code></pre>
 				First, categorize the files that your program needs to write into four categories:
 			</p>
 			<ol>
-				<li>Configuration</li>
+				<li><i>Configuration</i></li>
 				<p>
 					Configuration files that affect the behavior of an program. Even if the
 					configuration file is not meant to be human-editable, it likely belongs here.
 				</p>
-				<li>Data</li>
+				<li><i>Data</i></li>
 				<p>
 					General files and data that is inherently portable across computers. Examples
 					include fonts, files downloaded from the internet, and
@@ -281,13 +307,13 @@ Videos/</code></pre>
 						>desktop entries</a
 					>.
 				</p>
-				<li>State</li>
+				<li><i>State</i></li>
 				<p>
 					Files that hold the state of the application. This may include logs, command
 					history, recently used files, and game save data. In other words, if the data is
 					unique for a given machine, the file belongs here.
 				</p>
-				<li>Cache</li>
+				<li><i>Cache</i></li>
 				<p>Cache files.</p>
 			</ol>
 
@@ -630,7 +656,7 @@ printf '%s\n' "$REPLY"</pre
 		</main>
 
 		<footer>
-			<span>© Edwin Kofler</span><span>·</span
+			<span>© Edwin Kofler</span
 			><a href="https://github.com/hyperupcall/xdgbasedirectoryspecification.com"
 				>Source</a
 			>

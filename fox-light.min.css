@@ -1,0 +1,1091 @@
+/*! modern-normalize v2.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+
+/*
+Document
+========
+*/
+
+/**
+Use a better box model (opinionated).
+*/
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+html {
+	/* Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
+	font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji';
+	line-height: 1.15; /* 1. Correct the line height in all browsers. */
+	-webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
+	-moz-tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
+	-o-tab-size: 4;
+	tab-size: 4; /* 3 */
+}
+
+/*
+Sections
+========
+*/
+
+body {
+	margin: 0; /* Remove the margin in all browsers. */
+}
+
+/*
+Grouping content
+================
+*/
+
+/**
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+*/
+
+hr {
+	height: 0; /* 1 */
+	color: inherit; /* 2 */
+}
+
+/*
+Text-level semantics
+====================
+*/
+
+/**
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr[title] {
+	-webkit-text-decoration: underline dotted;
+	text-decoration: underline dotted;
+}
+
+/**
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+	font-weight: bolder;
+}
+
+/**
+1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. Correct the odd 'em' font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+	font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; /* 1 */
+	font-size: 1em; /* 2 */
+}
+
+/**
+Add the correct font size in all browsers.
+*/
+
+small {
+	font-size: 80%;
+}
+
+/**
+Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+/*
+Tabular data
+============
+*/
+
+/**
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+*/
+
+table {
+	text-indent: 0; /* 1 */
+	border-color: inherit; /* 2 */
+}
+
+/*
+Forms
+=====
+*/
+
+/**
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit; /* 1 */
+	font-size: 100%; /* 1 */
+	line-height: 1.15; /* 1 */
+	margin: 0; /* 2 */
+}
+
+/**
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+	text-transform: none;
+}
+
+/**
+Correct the inability to style clickable types in iOS and Safari.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+	-webkit-appearance: button;
+}
+
+/**
+Remove the inner border and padding in Firefox.
+*/
+
+::-moz-focus-inner {
+	border-style: none;
+	padding: 0;
+}
+
+/**
+Restore the focus styles unset by the previous rule.
+*/
+
+:-moz-focusring {
+	outline: 1px dotted ButtonText;
+}
+
+/**
+Remove the additional ':invalid' styles in Firefox.
+See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
+*/
+
+:-moz-ui-invalid {
+	box-shadow: none;
+}
+
+/**
+Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
+*/
+
+legend {
+	padding: 0;
+}
+
+/**
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+	vertical-align: baseline;
+}
+
+/**
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+	height: auto;
+}
+
+/**
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+	-webkit-appearance: textfield; /* 1 */
+	outline-offset: -2px; /* 2 */
+}
+
+/**
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to 'inherit' in Safari.
+*/
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button; /* 1 */
+	font: inherit; /* 2 */
+}
+
+/*
+Interactive
+===========
+*/
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+	display: list-item;
+}
+
+/*
+ *
+ *  𝗖 𝗢 𝗟 𝗢 𝗥
+ *  v 1.9.1
+ *
+ *  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+:root {
+	/*  General
+ *  ─────────────────────────────────── */
+
+	--oc-white: #ffffff;
+	--oc-white-rgb: 255, 255, 255;
+	--oc-black: #000000;
+	--oc-black-rgb: 0, 0, 0;
+
+	/*  Gray
+ *  ─────────────────────────────────── */
+
+	--oc-gray-0: #f8f9fa;
+	--oc-gray-0-rgb: 248, 249, 250;
+	--oc-gray-1: #f1f3f5;
+	--oc-gray-1-rgb: 241, 243, 245;
+	--oc-gray-2: #e9ecef;
+	--oc-gray-2-rgb: 233, 236, 239;
+	--oc-gray-3: #dee2e6;
+	--oc-gray-3-rgb: 222, 226, 230;
+	--oc-gray-4: #ced4da;
+	--oc-gray-4-rgb: 206, 212, 218;
+	--oc-gray-5: #adb5bd;
+	--oc-gray-5-rgb: 173, 181, 189;
+	--oc-gray-6: #868e96;
+	--oc-gray-6-rgb: 134, 142, 150;
+	--oc-gray-7: #495057;
+	--oc-gray-7-rgb: 73, 80, 87;
+	--oc-gray-8: #343a40;
+	--oc-gray-8-rgb: 52, 58, 64;
+	--oc-gray-9: #212529;
+	--oc-gray-9-rgb: 33, 37, 41;
+
+	/*  Red
+ *  ─────────────────────────────────── */
+
+	--oc-red-0: #fff5f5;
+	--oc-red-0-rgb: 255, 245, 245;
+	--oc-red-1: #ffe3e3;
+	--oc-red-1-rgb: 255, 227, 227;
+	--oc-red-2: #ffc9c9;
+	--oc-red-2-rgb: 255, 201, 201;
+	--oc-red-3: #ffa8a8;
+	--oc-red-3-rgb: 255, 168, 168;
+	--oc-red-4: #ff8787;
+	--oc-red-4-rgb: 255, 135, 135;
+	--oc-red-5: #ff6b6b;
+	--oc-red-5-rgb: 255, 107, 107;
+	--oc-red-6: #fa5252;
+	--oc-red-6-rgb: 250, 82, 82;
+	--oc-red-7: #f03e3e;
+	--oc-red-7-rgb: 240, 62, 62;
+	--oc-red-8: #e03131;
+	--oc-red-8-rgb: 224, 49, 49;
+	--oc-red-9: #c92a2a;
+	--oc-red-9-rgb: 201, 42, 42;
+
+	/*  Pink
+ *  ─────────────────────────────────── */
+
+	--oc-pink-0: #fff0f6;
+	--oc-pink-0-rgb: 255, 240, 246;
+	--oc-pink-1: #ffdeeb;
+	--oc-pink-1-rgb: 255, 222, 235;
+	--oc-pink-2: #fcc2d7;
+	--oc-pink-2-rgb: 252, 194, 215;
+	--oc-pink-3: #faa2c1;
+	--oc-pink-3-rgb: 250, 162, 193;
+	--oc-pink-4: #f783ac;
+	--oc-pink-4-rgb: 247, 131, 172;
+	--oc-pink-5: #f06595;
+	--oc-pink-5-rgb: 240, 101, 149;
+	--oc-pink-6: #e64980;
+	--oc-pink-6-rgb: 230, 73, 128;
+	--oc-pink-7: #d6336c;
+	--oc-pink-7-rgb: 214, 51, 108;
+	--oc-pink-8: #c2255c;
+	--oc-pink-8-rgb: 194, 37, 92;
+	--oc-pink-9: #a61e4d;
+	--oc-pink-9-rgb: 166, 30, 77;
+
+	/*  Grape
+ *  ─────────────────────────────────── */
+
+	--oc-grape-0: #f8f0fc;
+	--oc-grape-0-rgb: 248, 240, 252;
+	--oc-grape-1: #f3d9fa;
+	--oc-grape-1-rgb: 243, 217, 250;
+	--oc-grape-2: #eebefa;
+	--oc-grape-2-rgb: 238, 190, 250;
+	--oc-grape-3: #e599f7;
+	--oc-grape-3-rgb: 229, 153, 247;
+	--oc-grape-4: #da77f2;
+	--oc-grape-4-rgb: 218, 119, 242;
+	--oc-grape-5: #cc5de8;
+	--oc-grape-5-rgb: 204, 93, 232;
+	--oc-grape-6: #be4bdb;
+	--oc-grape-6-rgb: 190, 75, 219;
+	--oc-grape-7: #ae3ec9;
+	--oc-grape-7-rgb: 174, 62, 201;
+	--oc-grape-8: #9c36b5;
+	--oc-grape-8-rgb: 156, 54, 181;
+	--oc-grape-9: #862e9c;
+	--oc-grape-9-rgb: 134, 46, 156;
+
+	/*  Violet
+ *  ─────────────────────────────────── */
+
+	--oc-violet-0: #f3f0ff;
+	--oc-violet-0-rgb: 243, 240, 255;
+	--oc-violet-1: #e5dbff;
+	--oc-violet-1-rgb: 229, 219, 255;
+	--oc-violet-2: #d0bfff;
+	--oc-violet-2-rgb: 208, 191, 255;
+	--oc-violet-3: #b197fc;
+	--oc-violet-3-rgb: 177, 151, 252;
+	--oc-violet-4: #9775fa;
+	--oc-violet-4-rgb: 151, 117, 250;
+	--oc-violet-5: #845ef7;
+	--oc-violet-5-rgb: 132, 94, 247;
+	--oc-violet-6: #7950f2;
+	--oc-violet-6-rgb: 121, 80, 242;
+	--oc-violet-7: #7048e8;
+	--oc-violet-7-rgb: 112, 72, 232;
+	--oc-violet-8: #6741d9;
+	--oc-violet-8-rgb: 103, 65, 217;
+	--oc-violet-9: #5f3dc4;
+	--oc-violet-9-rgb: 95, 61, 196;
+
+	/*  Indigo
+ *  ─────────────────────────────────── */
+
+	--oc-indigo-0: #edf2ff;
+	--oc-indigo-0-rgb: 237, 242, 255;
+	--oc-indigo-1: #dbe4ff;
+	--oc-indigo-1-rgb: 219, 228, 255;
+	--oc-indigo-2: #bac8ff;
+	--oc-indigo-2-rgb: 186, 200, 255;
+	--oc-indigo-3: #91a7ff;
+	--oc-indigo-3-rgb: 145, 167, 255;
+	--oc-indigo-4: #748ffc;
+	--oc-indigo-4-rgb: 116, 143, 252;
+	--oc-indigo-5: #5c7cfa;
+	--oc-indigo-5-rgb: 92, 124, 250;
+	--oc-indigo-6: #4c6ef5;
+	--oc-indigo-6-rgb: 76, 110, 245;
+	--oc-indigo-7: #4263eb;
+	--oc-indigo-7-rgb: 66, 99, 235;
+	--oc-indigo-8: #3b5bdb;
+	--oc-indigo-8-rgb: 59, 91, 219;
+	--oc-indigo-9: #364fc7;
+	--oc-indigo-9-rgb: 54, 79, 199;
+
+	/*  Blue
+ *  ─────────────────────────────────── */
+
+	--oc-blue-0: #e7f5ff;
+	--oc-blue-0-rgb: 231, 245, 255;
+	--oc-blue-1: #d0ebff;
+	--oc-blue-1-rgb: 208, 235, 255;
+	--oc-blue-2: #a5d8ff;
+	--oc-blue-2-rgb: 165, 216, 255;
+	--oc-blue-3: #74c0fc;
+	--oc-blue-3-rgb: 116, 192, 252;
+	--oc-blue-4: #4dabf7;
+	--oc-blue-4-rgb: 77, 171, 247;
+	--oc-blue-5: #339af0;
+	--oc-blue-5-rgb: 51, 154, 240;
+	--oc-blue-6: #228be6;
+	--oc-blue-6-rgb: 34, 139, 230;
+	--oc-blue-7: #1c7ed6;
+	--oc-blue-7-rgb: 28, 126, 214;
+	--oc-blue-8: #1971c2;
+	--oc-blue-8-rgb: 25, 113, 194;
+	--oc-blue-9: #1864ab;
+	--oc-blue-9-rgb: 24, 100, 171;
+
+	/*  Cyan
+ *  ─────────────────────────────────── */
+
+	--oc-cyan-0: #e3fafc;
+	--oc-cyan-0-rgb: 227, 250, 252;
+	--oc-cyan-1: #c5f6fa;
+	--oc-cyan-1-rgb: 197, 246, 250;
+	--oc-cyan-2: #99e9f2;
+	--oc-cyan-2-rgb: 153, 233, 242;
+	--oc-cyan-3: #66d9e8;
+	--oc-cyan-3-rgb: 102, 217, 232;
+	--oc-cyan-4: #3bc9db;
+	--oc-cyan-4-rgb: 59, 201, 219;
+	--oc-cyan-5: #22b8cf;
+	--oc-cyan-5-rgb: 34, 184, 207;
+	--oc-cyan-6: #15aabf;
+	--oc-cyan-6-rgb: 21, 170, 191;
+	--oc-cyan-7: #1098ad;
+	--oc-cyan-7-rgb: 16, 152, 173;
+	--oc-cyan-8: #0c8599;
+	--oc-cyan-8-rgb: 12, 133, 153;
+	--oc-cyan-9: #0b7285;
+	--oc-cyan-9-rgb: 11, 114, 133;
+
+	/*  Teal
+ *  ─────────────────────────────────── */
+
+	--oc-teal-0: #e6fcf5;
+	--oc-teal-0-rgb: 230, 252, 245;
+	--oc-teal-1: #c3fae8;
+	--oc-teal-1-rgb: 195, 250, 232;
+	--oc-teal-2: #96f2d7;
+	--oc-teal-2-rgb: 150, 242, 215;
+	--oc-teal-3: #63e6be;
+	--oc-teal-3-rgb: 99, 230, 190;
+	--oc-teal-4: #38d9a9;
+	--oc-teal-4-rgb: 56, 217, 169;
+	--oc-teal-5: #20c997;
+	--oc-teal-5-rgb: 32, 201, 151;
+	--oc-teal-6: #12b886;
+	--oc-teal-6-rgb: 18, 184, 134;
+	--oc-teal-7: #0ca678;
+	--oc-teal-7-rgb: 12, 166, 120;
+	--oc-teal-8: #099268;
+	--oc-teal-8-rgb: 9, 146, 104;
+	--oc-teal-9: #087f5b;
+	--oc-teal-9-rgb: 8, 127, 91;
+
+	/*  Green
+ *  ─────────────────────────────────── */
+
+	--oc-green-0: #ebfbee;
+	--oc-green-0-rgb: 235, 251, 238;
+	--oc-green-1: #d3f9d8;
+	--oc-green-1-rgb: 211, 249, 216;
+	--oc-green-2: #b2f2bb;
+	--oc-green-2-rgb: 178, 242, 187;
+	--oc-green-3: #8ce99a;
+	--oc-green-3-rgb: 140, 233, 154;
+	--oc-green-4: #69db7c;
+	--oc-green-4-rgb: 105, 219, 124;
+	--oc-green-5: #51cf66;
+	--oc-green-5-rgb: 81, 207, 102;
+	--oc-green-6: #40c057;
+	--oc-green-6-rgb: 64, 192, 87;
+	--oc-green-7: #37b24d;
+	--oc-green-7-rgb: 55, 178, 77;
+	--oc-green-8: #2f9e44;
+	--oc-green-8-rgb: 47, 158, 68;
+	--oc-green-9: #2b8a3e;
+	--oc-green-9-rgb: 43, 138, 62;
+
+	/*  Lime
+ *  ─────────────────────────────────── */
+
+	--oc-lime-0: #f4fce3;
+	--oc-lime-0-rgb: 244, 252, 227;
+	--oc-lime-1: #e9fac8;
+	--oc-lime-1-rgb: 233, 250, 200;
+	--oc-lime-2: #d8f5a2;
+	--oc-lime-2-rgb: 216, 245, 162;
+	--oc-lime-3: #c0eb75;
+	--oc-lime-3-rgb: 192, 235, 117;
+	--oc-lime-4: #a9e34b;
+	--oc-lime-4-rgb: 169, 227, 75;
+	--oc-lime-5: #94d82d;
+	--oc-lime-5-rgb: 148, 216, 45;
+	--oc-lime-6: #82c91e;
+	--oc-lime-6-rgb: 130, 201, 30;
+	--oc-lime-7: #74b816;
+	--oc-lime-7-rgb: 116, 184, 22;
+	--oc-lime-8: #66a80f;
+	--oc-lime-8-rgb: 102, 168, 15;
+	--oc-lime-9: #5c940d;
+	--oc-lime-9-rgb: 92, 148, 13;
+
+	/*  Yellow
+ *  ─────────────────────────────────── */
+
+	--oc-yellow-0: #fff9db;
+	--oc-yellow-0-rgb: 255, 249, 219;
+	--oc-yellow-1: #fff3bf;
+	--oc-yellow-1-rgb: 255, 243, 191;
+	--oc-yellow-2: #ffec99;
+	--oc-yellow-2-rgb: 255, 236, 153;
+	--oc-yellow-3: #ffe066;
+	--oc-yellow-3-rgb: 255, 224, 102;
+	--oc-yellow-4: #ffd43b;
+	--oc-yellow-4-rgb: 255, 212, 59;
+	--oc-yellow-5: #fcc419;
+	--oc-yellow-5-rgb: 252, 196, 25;
+	--oc-yellow-6: #fab005;
+	--oc-yellow-6-rgb: 250, 176, 5;
+	--oc-yellow-7: #f59f00;
+	--oc-yellow-7-rgb: 245, 159, 0;
+	--oc-yellow-8: #f08c00;
+	--oc-yellow-8-rgb: 240, 140, 0;
+	--oc-yellow-9: #e67700;
+	--oc-yellow-9-rgb: 230, 119, 0;
+
+	/*  Orange
+ *  ─────────────────────────────────── */
+
+	--oc-orange-0: #fff4e6;
+	--oc-orange-0-rgb: 255, 244, 230;
+	--oc-orange-1: #ffe8cc;
+	--oc-orange-1-rgb: 255, 232, 204;
+	--oc-orange-2: #ffd8a8;
+	--oc-orange-2-rgb: 255, 216, 168;
+	--oc-orange-3: #ffc078;
+	--oc-orange-3-rgb: 255, 192, 120;
+	--oc-orange-4: #ffa94d;
+	--oc-orange-4-rgb: 255, 169, 77;
+	--oc-orange-5: #ff922b;
+	--oc-orange-5-rgb: 255, 146, 43;
+	--oc-orange-6: #fd7e14;
+	--oc-orange-6-rgb: 253, 126, 20;
+	--oc-orange-7: #f76707;
+	--oc-orange-7-rgb: 247, 103, 7;
+	--oc-orange-8: #e8590c;
+	--oc-orange-8-rgb: 232, 89, 12;
+	--oc-orange-9: #d9480f;
+	--oc-orange-9-rgb: 217, 72, 15;
+}
+
+:root {
+	/* shared */
+	--border-radius: 5px;
+
+	/* the <aside> element disappears when the screen is */
+	/* less than or equal to this pixel length */
+	--aside-display-bounds: 700px;
+
+	/* borders */
+	--border-thickness: 2px;
+
+	/* whitespace */
+	--ws-small: 5px;
+	--ws-medium: calc(var(--ws-small) * 2);
+	--ws-large: calc(var(--ws-medium) * 2);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	color: var(--html-text-color);
+	background-color: var(--html-bg-color);
+	line-height: 1.5;
+	-webkit-text-size-adjust: 100%; /* prevent adjustments of font size after orientation changes in iOS */
+}
+
+body {
+	margin: 0 10px;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Helvetica,
+		Arial,
+		sans-serif;
+}
+
+/**
+ * since we only add margin-block-end and margin-inline-end padding, the first
+ * elements on the page will not have margin-block-start margings. this fixes
+ * that, giving space to first elements
+ * TODO: golf
+ */
+
+body > section,
+body > article,
+body > aside,
+body > nav,
+body > blockquote,
+body > span,
+body > dd,
+body > dt,
+body > button {
+	margin-top: var(--ws-medium);
+}
+
+body + section,
+body + article,
+body + nav {
+	margin-top: var(--ws-medium);
+}
+
+section,
+article,
+aside,
+nav,
+blockquote,
+dd,
+dt,
+samp,
+button {
+	padding: var(--ws-medium);
+	margin-bottom: var(--ws-medium);
+	border-radius: var(--border-radius);
+	background-color: var(--bg-1);
+	overflow: auto;
+}
+
+/* darken background if nested */
+
+section article,
+article section,
+article aside,
+section aside {
+	margin-bottom: unset;
+	background: var(--bg-2);
+}
+
+/* nav */
+
+nav {
+	display: flex;
+	margin-bottom: var(--ws-medium);
+	background: var(--bg-0);
+}
+
+nav > * {
+	display: inline;
+	background: var(--bg-1);
+	margin-right: var(--ws-medium);
+	padding: calc(var(--ws-medium) * 0.8) var(--ws-large);
+	border-radius: var(--border-radius);
+}
+
+nav * {
+	text-decoration: none;
+}
+
+/* footer */
+
+body > footer {
+	display: flex;
+	justify-content: center;
+}
+
+body > footer > * {
+	background-color: var(--bg-1);
+	margin: var(--ws-small);
+	padding: var(--ws-small) var(--ws-medium);
+	border-radius: var(--border-radius);
+}
+
+body > footer * {
+	text-decoration: none;
+}
+
+/* aside view */
+
+aside {
+	max-width: 35%;
+	float: right;
+	background-color: var(--bg-1);
+}
+
+/* flex */
+
+.flex {
+	display: flex;
+}
+
+.flex > * {
+	flex: 1;
+}
+
+.flex > * ~ * {
+	margin-left: 10px;
+}
+
+@media (max-width: var(--aside-display-bounds)) {
+	aside {
+		float: none;
+		display: none;
+	}
+
+	.flex {
+		flex-direction: column;
+	}
+
+	.flex > * ~ * {
+		margin-left: unset;
+		margin-top: 10px;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 var(--ws-medium) 0;
+}
+
+p {
+	margin: 0 0 var(--ws-medium) 0;
+}
+
+a {
+	color: var(--ws-medium);
+	text-decoration-color: var(--a-normal);
+}
+
+a:visited {
+	text-decoration-color: var(--a-visited);
+}
+
+a:hover {
+	text-decoration-color: var(--a-hover);
+}
+
+a:active {
+	text-decoration-color: var(--a-active);
+}
+
+ul,
+ol {
+	padding: 0 0 0 var(--ws-large);
+	border-radius: var(--border-radius);
+}
+
+li {
+	margin: var(--ws-medium);
+}
+
+blockquote {
+	background-color: var(--bg-1);
+	border-radius: var(--border-radius);
+}
+
+blockquote > p {
+	margin-block-end: 0; /* TODO */
+	display: inline;
+	quotes: '“' '”' '‘' '’';
+}
+
+blockquote::before {
+	content: open-quote;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+blockquote::after {
+	content: close-quote;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+del,
+ins {
+	border-radius: var(--border-radius);
+	text-decoration: none;
+	padding: 0.5px;
+}
+
+del {
+	background: var(--del-bg-color);
+}
+
+ins {
+	background: var(--ins-bg-color);
+}
+
+dl {
+	margin-block-start: 0;
+	margin-block-end: var(--ws-medium);
+	border: var(--border-thickness) solid var(--border-color-light);
+	padding: var(--ws-medium);
+	border-radius: var(--border-radius);
+}
+
+dt {
+	margin-bottom: var(--ws-medium);
+	border-bottom: var(--border-thickness) solid var(--border-color-light);
+}
+
+dd {
+	margin-bottom: var(--ws-large);
+	margin-left: 40px;
+}
+
+dd:last-child {
+	margin-bottom: unset;
+}
+
+pre {
+	padding: var(--ws-small);
+	margin: var(--ws-small) var(--ws-small) var(--ws-small) 0;
+	border-radius: var(--ws-small);
+	background: var(--bg-1);
+	overflow: hidden;
+}
+
+mark {
+	padding: 1px 3px;
+	background: var(--mark-bg-color);
+	border-radius: var(--border-radius);
+}
+
+kbd {
+	border-radius: 5px;
+	padding: 2px;
+	border: calc(var(--border-thickness) / 2) solid var(--border-color-dark);
+}
+
+u {
+	-webkit-text-decoration: var(--u-underline-color) wavy underline;
+	text-decoration: var(--u-underline-color) wavy underline;
+}
+
+samp,
+button {
+	display: inline-block;
+	border: var(--border-thickness) solid var(--border-color-dark);
+	margin: var(--ws-medium) 0;
+}
+
+button {
+	color: var(--html-text-color);
+	background: inherit;
+	cursor: pointer;
+	padding: var(--ws-small) var(--ws-medium);
+}
+
+button:hover {
+	color: var(--bg-0);
+	background: var(--border-color-dark);
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+caption {
+	padding: var(--ws-medium) 0;
+	background-color: var(--bg-1);
+}
+
+section caption,
+article caption {
+	background-color: var(--bg-2);
+}
+
+th,
+td {
+	padding: var(--ws-large);
+	border-radius: var(--border-radius);
+	text-align: left;
+	border: var(--border-thickness) solid var(--border-color-light);
+}
+
+section th,
+section td,
+article th,
+article td {
+	border: var(--border-thickness) solid var(--bg-2);
+}
+
+form {
+	border-radius: var(--border-radius);
+	padding: var(--ws-small);
+	border: var(--border-thickness) solid var(--border-color-light);
+}
+
+label + input,
+label input {
+	display: block;
+}
+
+label + input[type='checkbox'],
+label input[type='checkbox'],
+label + input[type='radio'],
+label input[type='radio'] {
+	display: initial;
+}
+
+input,
+select,
+fieldset {
+	margin: 0 0 var(--ws-medium);
+}
+
+input,
+select,
+textarea {
+	color: var(--html-text-color);
+	border: var(--border-thickness) solid var(--border-color-light);
+	border-radius: var(--border-radius);
+	padding: 8px;
+	background: var(--form-input-bg-color);
+}
+
+textarea {
+	width: 100%;
+}
+
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input[type='submit'] {
+	cursor: pointer;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	position: relative;
+	top: 15px;
+	cursor: pointer;
+}
+
+input[type='radio'] {
+	border-radius: 50px;
+}
+
+input[type='checkbox'] {
+	border-radius: 2px;
+}
+
+input[type='radio']:checked,
+input[type='checkbox']:checked {
+	background-color: var(--bg-3);
+	transition: all 0.1s ease-in;
+}
+
+fieldset {
+	border: var(--border-thickness) solid var(--border-color-light);
+	border-radius: var(--border-radius);
+}
+
+legend {
+	padding: var(--ws-small);
+}
+
+hr {
+	border: none;
+	height: 2px;
+	border-radius: 2px;
+	background-color: var(--bg-2);
+}
+
+img,
+video {
+	height: auto;
+	max-width: 100%;
+	border-radius: var(--border-radius);
+}
+
+iframe {
+	border: 0;
+}
+
+video,
+audio {
+	border-radius: var(--border-radius);
+}
+
+figure {
+	margin: var(--ws-small);
+}
+
+summary {
+	padding: var(--ws-small);
+}
+
+summary {
+	border: var(--border-thickness) solid var(--border-color-light);
+	border-radius: var(--border-radius);
+}
+
+:root {
+	--html-text-color: var(--oc-gray-9);
+	--html-bg-color: var(--oc-white);
+
+	/* background levels */
+	--bg-0: var(--oc-gray-0);
+	--bg-1: var(--oc-gray-1);
+	--bg-2: var(--oc-gray-2);
+	--bg-3: var(--oc-gray-3);
+
+	/* borders */
+	--border-color-light: var(--oc-gray-3);
+	--border-color-medium: var(--oc-gray-4);
+	--border-color-dark: var(--oc-gray-8);
+
+	/* a */
+	--a-normal: var(--oc-blue-5);
+	--a-visited: var(--oc-grape-3);
+	--a-hover: var(--oc-grape-8);
+	--a-active: var(--oc-grape-8);
+
+	/* ins, del */
+	--del-bg-color: var(--oc-red-2);
+	--ins-bg-color: var(--oc-green-2);
+
+	/* mark */
+	--mark-bg-color: var(--oc-yellow-2);
+
+	/* u */
+	--u-underline-color: var(--oc-red-4);
+
+	/* form */
+	--form-input-bg-color: var(--oc-white);
+}
