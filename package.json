@@ -1,6 +1,27 @@
 {
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/undefined/undefined.git"
+	},
+	"bugs": {
+		"url": "https://github.com/undefined/undefined/issues"
+	},
+	"author": "Edwin Kofler <edwin@kofler.dev> (https://edwinkofler.com)",
+	"private": true,
+	"scripts": {
+		"format": "prettier --check .",
+		"lint": "eslint ."
+	},
 	"devDependencies": {
-		"@hyperupcall/prettier-config": "^0.6.0",
-		"prettier": "^3.0.1"
-	}
+		"@hyperupcall/markdownlint-config": "^0.3.2",
+		"@hyperupcall/prettier-config": "^0.7.0",
+		"fox-css": "^0.14.0",
+		"markdownlint": "^0.33.0",
+		"prettier": "^3.2.2",
+		"prettier-plugin-pkg": "^0.18.0"
+	},
+	"markdownlint-cli2": {
+		"extends": "./node_modules/@hyperupcall/markdownlint-config/.markdownlint.json"
+	},
+	"prettier": "@hyperupcall/prettier-config"
 }
