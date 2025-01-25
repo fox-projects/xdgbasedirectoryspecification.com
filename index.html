@@ -80,9 +80,8 @@
 		<main>
 			<h2>Why?</h2>
 			<p>Look at your home</p>
-			<pre
-				class="ls-long"
-			><code>$ find ~ -mindepth 1 -maxdepth 1 -type f -printf '%f\n' -or -type d -printf '%f/\n'
+			<pre class="ls-long"><code>$ ls -A -1 ~
+'Universe Sandbox'/
 .alsoftrc
 .android/
 .ansible/
@@ -93,12 +92,7 @@
 .choosenim/
 .code-d/
 .config/
-config/
 .cpan/
-data/
-Desktop/
-Downloads/
-Documents/
 .eclipse/
 .elementary/
 .emacs.d/
@@ -117,14 +111,10 @@ Documents/
 .guestfish
 .heekscad
 .helioslauncher/
-HomeBank-20210521.bak
-HomeBank-20210607.bak
-HomeBank-20210611.bak
 .hushlogin
 .idapro/
 .ivy2/
 .java/
-javasharedresources/
 .kb/
 .kube/
 .lldb/
@@ -132,7 +122,6 @@ javasharedresources/
 .lunarclient/
 .lyxauth
 .m2/
-macOS.vdi
 .mcfly/
 .metals/
 .minecraft/
@@ -140,14 +129,12 @@ macOS.vdi
 .mozilla
 .mputils/
 .mume/
-Music/
 .omnisharp/
 .ort/
 .osc_cookiejar
 .pack/
 .paradoxlauncher/
 .parsec/
-Pictures/
 .pki/
 .pm2/
 .profile
@@ -162,8 +149,6 @@ Pictures/
 .subversion/
 .swt/
 .tooling/
-'Universe Sandbox'/
-Videos/
 .vscode/
 .w3m/
 .wine/
@@ -171,23 +156,34 @@ Videos/
 .yarnrc
 .zcompdump
 .zoom/
-.zshenv</code></pre>
+.zshenv
+Desktop/
+Documents/
+Downloads/
+HomeBank-20210521.bak
+HomeBank-20210607.bak
+HomeBank-20210611.bak
+Music/
+Pictures/
+Videos/
+config/
+data/
+javasharedresources/
+macOS.vdi</code></pre>
 
 			<p>What if your house was clean and tidy?</p>
 
-			<pre
-				class="ls-short"
-			><code>$ find ~ -mindepth 1 -maxdepth 1 -type f -printf '%f\n' -or -type d -printf '%f/\n'
+			<pre class="ls-short"><code>$ ls -A -1 ~
 .bashrc
 .cache/
 .config/
-Desktop/
-Downloads/
-Documents/
 .local/
+.profile
+Desktop/
+Documents/
+Downloads/
 Music/
 Pictures/
-.profile
 Videos/</code></pre>
 
 			<p>
