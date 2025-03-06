@@ -603,7 +603,7 @@ summary {
 	--border-thickness: 2px;
 
 	/* whitespace */
-	--ws-small: 5px;
+	--ws-small: 6px;
 	--ws-medium: calc(var(--ws-small) * 2);
 	--ws-large: calc(var(--ws-medium) * 2);
 }
@@ -618,6 +618,7 @@ summary {
 
 html,
 body {
+	font-size: 18px;
 	color: var(--html-text-color);
 	background-color: var(--html-bg-color);
 	line-height: 1.5;
@@ -770,11 +771,32 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0 0 var(--ws-medium) 0;
+	/* margin-block-end: var(--ws-small); */
+}
+
+p + h1,
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6 {
+	margin-block-start: var(--ws-large);
+}
+
+div + p, /* TODO */
+p + p,
+figure + p,
+ul + p,
+ol + p,
+blockquote + p,
+pre + p,
+table + p {
+	margin-block-start: var(--ws-medium);
 }
 
 p {
-	margin: 0 0 var(--ws-medium) 0;
+	line-height: 140%;
+	margin-block-end: var(--ws-medium);
 }
 
 a {
@@ -796,7 +818,7 @@ a:active {
 
 ul,
 ol {
-	padding: 0 0 0 var(--ws-large);
+	padding-inline-start: var(--ws-large);
 	border-radius: var(--border-radius);
 }
 
@@ -809,12 +831,6 @@ blockquote {
 	border-radius: var(--border-radius);
 }
 
-blockquote > p {
-	margin-block-end: 0; /* TODO */
-	display: inline;
-	quotes: '“' '”' '‘' '’';
-}
-
 blockquote::before {
 	content: open-quote;
 	font-size: 1.2rem;
@@ -825,6 +841,19 @@ blockquote::after {
 	content: close-quote;
 	font-size: 1.2rem;
 	font-weight: bold;
+}
+
+blockquote > p {
+	margin-block-end: 0; /* TODO */
+	display: inline;
+}
+
+figure > blockquote + figcaption {
+	margin-left: calc(var(--ws-small) - 3px);
+	border-left-style: solid;
+	border-inline-start-width: 3px;
+	border-left-color: var(--border-color-dark);
+	padding-inline-start: 5px;
 }
 
 del,
@@ -959,7 +988,7 @@ label input[type='radio'] {
 input,
 select,
 fieldset {
-	margin: 0 0 var(--ws-medium);
+	margin-block-start: var(--ws-medium);
 }
 
 input,
@@ -1055,37 +1084,75 @@ summary {
 	border-radius: var(--border-radius);
 }
 
-:root {
-	--html-text-color: var(--oc-gray-9);
-	--html-bg-color: var(--oc-white);
+@media (prefers-color-scheme: dark) {
+	:root {
+		--html-text-color: var(--oc-gray-0);
+		--html-bg-color: var(--oc-gray-9);
 
-	/* background levels */
-	--bg-0: var(--oc-gray-0);
-	--bg-1: var(--oc-gray-1);
-	--bg-2: var(--oc-gray-2);
-	--bg-3: var(--oc-gray-3);
+		/* background levels */
+		--bg-0: var(--oc-gray-9);
+		--bg-1: var(--oc-gray-8);
+		--bg-2: var(--oc-gray-7);
+		--bg-3: var(--oc-gray-6);
 
-	/* borders */
-	--border-color-light: var(--oc-gray-3);
-	--border-color-medium: var(--oc-gray-4);
-	--border-color-dark: var(--oc-gray-8);
+		/* borders */
+		--border-color-light: var(--oc-gray-8);
+		--border-color-dark: var(--oc-gray-4);
 
-	/* a */
-	--a-normal: var(--oc-blue-5);
-	--a-visited: var(--oc-grape-3);
-	--a-hover: var(--oc-grape-8);
-	--a-active: var(--oc-grape-8);
+		/* a */
+		--a-normal: var(--oc-blue-6);
+		--a-visited: var(--oc-grape-8);
+		--a-hover: var(--oc-grape-3);
+		--a-active: var(--oc-grape-3);
 
-	/* ins, del */
-	--del-bg-color: var(--oc-red-2);
-	--ins-bg-color: var(--oc-green-2);
+		/* ins, del */
+		--del-bg-color: var(--oc-red-8);
+		--ins-bg-color: var(--oc-green-8);
 
-	/* mark */
-	--mark-bg-color: var(--oc-yellow-2);
+		/* mark */
+		--mark-bg-color: var(--oc-yellow-7);
 
-	/* u */
-	--u-underline-color: var(--oc-red-4);
+		/* u */
+		--u-underline-color: var(--oc-red-4);
 
-	/* form */
-	--form-input-bg-color: var(--oc-white);
+		/* form */
+		--form-input-bg-color: var(--oc-gray-7);
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--html-text-color: var(--oc-gray-9);
+		--html-bg-color: var(--oc-white);
+
+		/* background levels */
+		--bg-0: var(--oc-gray-0);
+		--bg-1: var(--oc-gray-1);
+		--bg-2: var(--oc-gray-2);
+		--bg-3: var(--oc-gray-3);
+
+		/* borders */
+		--border-color-light: var(--oc-gray-3);
+		--border-color-medium: var(--oc-gray-4);
+		--border-color-dark: var(--oc-gray-8);
+
+		/* a */
+		--a-normal: var(--oc-blue-5);
+		--a-visited: var(--oc-grape-3);
+		--a-hover: var(--oc-grape-8);
+		--a-active: var(--oc-grape-8);
+
+		/* ins, del */
+		--del-bg-color: var(--oc-red-2);
+		--ins-bg-color: var(--oc-green-2);
+
+		/* mark */
+		--mark-bg-color: var(--oc-yellow-2);
+
+		/* u */
+		--u-underline-color: var(--oc-red-4);
+
+		/* form */
+		--form-input-bg-color: var(--oc-white);
+	}
 }
